@@ -6,6 +6,7 @@ struct block_header {
 	unsigned int size : 29,
 		     zero: 2,
 		     alloc: 1;
+	struct block_header *next;
 };
 
 struct block{
