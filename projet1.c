@@ -6,6 +6,12 @@ struct block_header {
 	unsigned int size : 29,
 		     zero: 2,
 		     alloc: 1;
+};
+
+struct block_header2 {
+	unsigned int size : 29,
+		     zero: 2,
+		     alloc: 1;
 	struct block_header *next;
 };
 
@@ -23,5 +29,5 @@ void* malloc(size_t size){
 }
 
 int main(int argc, int *argv[]){
-printf("%d\n", sizeof(struct block_header));
+printf("test 1 :%d\n test 2:%d\n", sizeof(struct block), sizeof(block_header2));
 }
