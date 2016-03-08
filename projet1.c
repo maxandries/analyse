@@ -17,13 +17,13 @@ base->alloc = 0;
 
 struct block_meta *find_free_block(size_t size) {
   struct block_header *current = global_base;
-  while (current && !(current->free && current->size >= size)) {
+  while (current && !(current->alloc && current->size >= size)) {
     current = (current + 4 + current->size);
   }
   return current;
 }
 
-struct block_header* splitBlock(struct block_header){
+struct block_header* splitBlock(struct block_header name){
 	
 }
 
@@ -32,5 +32,5 @@ void* malloc(size_t size){
 }
 
 int main(int argc, int *argv[]){
-printf("test 1 :%d\n test 2:%d\n", sizeof(struct block), sizeof(block_header2));
+
 }
