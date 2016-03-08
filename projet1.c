@@ -11,8 +11,9 @@ struct block_header {
 };
 
 struct block_header *base;
-base->size = (void *)sbrk(0)-(base+4);
-base->alloc = 0;
+
+base ->size = (void *)sbrk(0)-(base+4);
+base ->alloc = 0;
 
 
 struct block_meta *find_free_block(size_t size) {
@@ -20,7 +21,7 @@ struct block_meta *find_free_block(size_t size) {
   while (current && !(current->alloc && current->size >= size)) {
     current = (current + 4 + current->size);
   }
-  return current;
+  return *current;
 }
 
 struct block_header* splitBlock(struct block_header name){
