@@ -11,12 +11,12 @@ struct block_header {
 };
 
 struct block_header *base;
-base->size = sbrk(0)-(base+4);
+base->size = (void *)sbrk(0)-(base+4);
 base->alloc = 0;
 
 
 struct block_meta *find_free_block(size_t size) {
-  struct block_header *current = global_base;
+  struct block_header *current = base;
   while (current && !(current->alloc && current->size >= size)) {
     current = (current + 4 + current->size);
   }
