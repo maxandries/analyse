@@ -10,12 +10,15 @@ struct block_header {
 		     alloc: 1;
 };
 
+static struct block *base;
+
+
 void* findFree(size_t size){
 	
 }
 
 void* malloc(size_t size){
-	
+	size = size + (4 - (size % 4));
 }
 
 int main(int argc, int *argv[]){
