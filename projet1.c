@@ -8,18 +8,6 @@ struct block_header {
 		     alloc: 1;
 };
 
-struct block_header2 {
-	unsigned int size : 29,
-		     zero: 2,
-		     alloc: 1;
-	struct block_header *next;
-};
-
-struct block{
-	struct block_header header;
-	struct block *next;
-};
-
 void* malloc(size_t size){
 	struct block_header *a;
 	struct block *b;
