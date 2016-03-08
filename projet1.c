@@ -11,7 +11,7 @@ struct block_header {
 };
 
 static struct block *base;
-base->size = sbrk(0)-(base+4);
+base->size = sbrk(0)-(&base+4);
 base->alloc = 0;
 
 
