@@ -10,8 +10,9 @@ struct block_header {
 		     alloc: 1;
 };
 
-struct block *base;
-
+struct block_header *base;
+base->size = sbrk(0)-(base+4);
+base->alloc = 0;
 
 
 struct block_meta *find_free_block(size_t size) {
@@ -31,6 +32,5 @@ void* malloc(size_t size){
 }
 
 int main(int argc, int *argv[]){
-base->size = sbrk(0)-(base+4);
-base->alloc = 0;
+
 }
