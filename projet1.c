@@ -10,7 +10,7 @@ struct block_header {
 		     alloc: 1;
 };
 
-static struct block *base;
+struct block *base;
 base->size = sbrk(0)-(&base+4);
 base->alloc = 0;
 
