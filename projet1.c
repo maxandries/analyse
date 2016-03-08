@@ -15,7 +15,15 @@ base->size = sbrk(0)-(base+4);
 base->alloc = 0;
 
 
-void* findFree(size_t size){
+struct block_meta *find_free_block(size_t size) {
+  struct block_header *current = global_base;
+  while (current && !(current->free && current->size >= size)) {
+    current = (current + 4 + current->size);
+  }
+  return current;
+}
+
+struct block_header* splitBlock(struct block_header){
 	
 }
 
