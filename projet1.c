@@ -25,7 +25,7 @@ void* malloc(size_t size){
 		return NULL;
 	}
 	
-	int sizeTot = size + (4 - (size % 4));
+	int sizeTot = size + (4 - (size % 4)) + sizeof(struct block_header); //alignement sur 32bits et ajouts de la taille de la structure
 	//#define ALIGNEMENT 8
 	//#define ALIGN(size) (((size) + (ALIGNEMENT-1)) & ~(ALIGNEMENT-1))
 	
