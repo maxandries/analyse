@@ -25,7 +25,7 @@ void* malloc(size_t size){
 		return NULL;
 	}
 	
-	if(!(*base)){
+	if(!(base)){
 		base = sbrk(0);
 		sbrk(taille_heap+4);
 		struct block_header *first;
