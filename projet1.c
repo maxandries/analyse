@@ -4,8 +4,7 @@
 
 #define SIZE_HEADER sizeof(struct block_header)
 int taille_heap = 4000000;
-void *base = NULL;
-struct block_header *first;
+struct block_header *first = NULL;
 struct block_header {
 	unsigned int size : 29,
 		     zero: 2,
@@ -37,10 +36,9 @@ void* malloc(size_t size){
 	
 	//if (sizeTot > 42)
 	
-	if(!(base)){
-		base = sbrk(0);
+	if(!(first)){
+		first = sbrk(0);
 		sbrk(taille_heap);
-		*first = (struct bloch_header *)base;
 		first->size = taille_heap;
 		first->alloc =0;
 	}
