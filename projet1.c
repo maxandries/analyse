@@ -21,6 +21,8 @@ struct block_header* splitBlock(struct block_header name){
 
 void* malloc(size_t size){
 	size = size + (4 - (size % 4));
+	//#define ALIGNEMENT 8
+	//#define ALIGN(size) (((size) + (ALIGNEMENT-1)) & ~(ALIGNEMENT-1))
 }
 
 int main(int argc, int *argv[]){
