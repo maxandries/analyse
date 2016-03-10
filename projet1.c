@@ -21,9 +21,15 @@ struct block_header* splitBlock(struct block_header name){
 }
 
 void* malloc(size_t size){
-	if(size <=0){
+	if(size <= 0){
 		return NULL;
 	}
+	
+	int sizeTot = size + (4 - (size % 4));
+	//#define ALIGNEMENT 8
+	//#define ALIGN(size) (((size) + (ALIGNEMENT-1)) & ~(ALIGNEMENT-1))
+	
+	//if (sizeTot > 42)
 	
 	if(!(base)){
 		base = sbrk(0);
@@ -32,9 +38,7 @@ void* malloc(size_t size){
 		first->size = taille_heap;
 		first->alloc =0;
 	}
-	size = size + (4 - (size % 4));
-	//#define ALIGNEMENT 8
-	//#define ALIGN(size) (((size) + (ALIGNEMENT-1)) & ~(ALIGNEMENT-1))
+	
 }
 
 int main(int argc, int *argv[]){
