@@ -40,7 +40,7 @@ void* malloc(size_t size){
 	if(!(base)){
 		base = sbrk(0);
 		sbrk(taille_heap);
-		*first = *base;
+		*first = (struct bloch_header *)base;
 		first->size = taille_heap;
 		first->alloc =0;
 	}
