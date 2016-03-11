@@ -12,15 +12,14 @@ struct block_header *first = NULL;
 int taille_heap = 4000000;
 
 
-/*struct block_head *find_free_block(struct block_meta **last, size_t size) {
+struct block_head *find_free_block(size_t size) {
   struct block_head *current = *first;
-  while (current && !(current->free && current->size >= size)) {
-    *last = current;
-    current = current->next;
+  while (!(current->free && current->size >= size)) {
+    *current = &current + size;
   }
   return current;
 }
-*/
+
 struct block_header* splitBlock(struct block_header name){
 	
 }
