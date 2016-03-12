@@ -13,17 +13,19 @@ struct block_header *first = NULL;
 int memsize = 40000;
 
 struct block_header *findFree(size_t size) {
-	printf("test find");
-  struct block_header *current = first;
-  printf("current OK \n");
-  while (!(current->alloc && (current->size == size || current->size - size > 4))) {
-  	if ((current+current->size) == sbrk(0)){
-  		return NULL;
-  		
-  	}
-    current = current + current->size;
-  }
-  return current;
+	printf("test find\n");
+	struct block_header *current = first;
+	printf("current OK \n");
+	int i =1;
+	while (!(current->alloc && (current->size == size || current->size - size > 4))) {
+		printf("test : %d\n", i);
+		i++;
+		if ((current+current->size) == sbrk(0)){
+			return NULL;
+		}
+		current = current + current->size;
+	}
+	return current;
 }
 
 
