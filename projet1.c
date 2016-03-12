@@ -96,4 +96,7 @@ void flattenheap(){
 int main(int argc, int *argv[]){
 int *p = (int *)mymalloc(sizeof(int));
 printf("adresse int: %p\n",p);
+long *a = (long *)mymalloc(sizeof(long));
+printf("adresse long: %p\n",a);
+
 }
