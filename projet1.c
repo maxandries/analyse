@@ -9,7 +9,7 @@ struct block_header {
 		     alloc: 1;
 };
 struct block_header *first = NULL;
-int memsize = 400;
+int memsize = 40000;
 
 
 struct block_header *findFree(size_t size) {
