@@ -27,23 +27,24 @@ struct block_header *findFree(size_t size) {
 
 
 void* mymalloc(size_t size){
-	printf("test\n");
+	printf("test\n");//debug
 	if(size <= 0){
-		printf("null");
+		printf("null");//debug
 		return NULL;
 		
 	}
 	
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
-	printf("sizeTot : %d\n", sizeTot);
+	printf("sizeTot : %d\n", sizeTot);//debug
 	if(!(first)){
-		printf("test 2/n");
+		printf("test 2/n");//debug
 		first = sbrk(0);
 		sbrk(memsize);
 		first->size = memsize;
 		first->alloc = 0;
 		printf("%d/n", (sbrk(0)-(void *)first));
 	}
+	printf("not null at first call?")//debug
 	struct block_header *freeOne = findFree(sizeTot);
 	if(!freeOne){
 		return NULL; //pas de place libre
