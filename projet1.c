@@ -24,9 +24,6 @@ struct block_header *findFree(size_t size) {
   return current;
 }
 
-struct block_header* splitBlock(struct block_header name){
-	
-}
 
 void* mymalloc(size_t size){
 	if(size <= 0){
@@ -48,7 +45,13 @@ void* mymalloc(size_t size){
 	if(freeOne->size == sizeTot){
 		return (void *)(freeOne+4);
 	}
-	
+	if(sizeTot<freeOne->size){
+		freeOne->size = (freeOne->size)->sizeTot;
+		struct block_header *newBlock = freeOne+freeOne->size;
+		newBlock->size = sizeTot;
+		newBlock->alloc = 1;
+		return (void *)(newBlock+4);
+	}
 	
 }
 
