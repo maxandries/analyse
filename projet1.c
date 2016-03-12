@@ -68,7 +68,7 @@ void* mymalloc(size_t size){
 		printf("struct created: %p \n", newBlock);
 		printf("size: %d\n", sizeTot);
 		printf("difference :%d\n", sbrk(0)-(void *)newBlock);
-		printf("sizeTot: %d\n", sizeTot);
+		printf("sizeTot: %d\n", newBlock->size);
 		newBlock->size = sizeTot;
 		printf("size allocated\n");
 		newBlock->alloc = 1;
