@@ -57,7 +57,7 @@ void* mymalloc(size_t size){
 		freeOne->alloc = 0;
 		return (void *)(newBlock+1);
 	}
-	printf("il y a rien\n")
+	printf("il y a rien\n");
 	return NULL;
 	
 }
