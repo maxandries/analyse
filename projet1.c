@@ -9,7 +9,7 @@ struct block_header {
 		     alloc: 1;
 };
 struct block_header *first = NULL;
-int memsize = 4000;
+int memsize = 400;
 
 
 struct block_header *findFree(size_t size) {
@@ -32,7 +32,7 @@ void* mymalloc(size_t size){
 	}
 	
 	int sizeTot = size + (4 - (size % 4)) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
-	
+	printf("sizeTot : %d", sizeTot);
 	if(!(first)){
 		printf("test 2/n");
 		first = sbrk(0);
