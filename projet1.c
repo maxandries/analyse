@@ -14,7 +14,7 @@ int taille_heap = 4000000;
 
 struct block_head *findFree(size_t size) {
   struct block_header *current = *first;
-  while (!(current->free && current->size >= size)) {
+  while (!(current->alloc && current->size >= size)) {
     *current = &current + size;
   }
   return *current;
@@ -35,7 +35,7 @@ void* mymalloc(size_t size){
 		first = sbrk(0);
 		sbrk(taille_heap);
 		first->size = taille_heap;
-		first->alloc =0;
+		first->alloc = 0;
 	}
 	struct block_header *freeOne = *findFree(size);
 	
