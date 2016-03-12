@@ -17,7 +17,7 @@ struct block_header *findFree(size_t size) {
 	struct block_header *current = first;
 	printf("current OK \n");
 	int i =1;
-	while (!(current->alloc && (current->size == size || current->size - size > 4))) {
+	while (!(current->alloc == 1 && (current->size == size || current->size - size > 4))) {
 		printf("test : %d\n", i);
 		i++;
 		if ((current+current->size) == sbrk(0)){
