@@ -10,7 +10,7 @@ struct block_header {
 		     alloc: 1;
 };
 struct block_header *first = NULL;
-int memsize = 40000;
+int memsize = 4000000;
 
 struct block_header *findFree(size_t size) {
 	printf("test find\n");
