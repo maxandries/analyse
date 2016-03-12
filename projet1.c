@@ -37,7 +37,7 @@ void* mymalloc(size_t size){
 		first->size = taille_heap;
 		first->alloc = 0;
 	}
-	struct block_header *freeOne = findFree(size);
+	struct block_header *freeOne = *findFree(size);
 	
 	
 }
