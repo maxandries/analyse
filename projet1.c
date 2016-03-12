@@ -49,10 +49,11 @@ void* mymalloc(size_t size){
 	}
 	printf("not null at first call?\n");//debug
 	struct block_header *freeOne = findFree(sizeTot);
-	printf("findfree ok\n");
 	if(!freeOne){
+		printf("findfree null\n");
 		return NULL; //pas de place libre
 	}
+	printf("findfree ok\n");
 	if(freeOne->size == sizeTot){
 		return (void *)(freeOne+4);
 	}
