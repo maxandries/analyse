@@ -14,7 +14,7 @@ int memsize = 4000;
 
 struct block_header *findFree(size_t size) {
   struct block_header *current = first;
-  while (!(current->alloc && current->size == size)) {
+  while (!(current->alloc && (current->size == size || current->size - size > 4)) {
   	if ((current+current->size) == sbrk(0)){
   		return NULL;
   		
