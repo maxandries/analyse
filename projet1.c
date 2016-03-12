@@ -39,11 +39,11 @@ void* mymalloc(size_t size){
 	}
 	struct block_header *newBlock = findFree(sizeTot);
 	if(!newBlock){
-			printf("bloc null");
+			printf("bloc null\n");
 		return NULL; //pas de place libre
 	}
 	if(newBlock->size == sizeTot){
-		printf("bloc egal");
+		printf("bloc egal\n");
 		
 		return (void *)(newBlock+1);
 	}
