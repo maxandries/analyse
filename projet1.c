@@ -57,7 +57,7 @@ void* mymalloc(size_t size){
 }
 
 void myfree(void *ptr){
-	
+	(ptr-4)->alloc =0;
 }
 
 int main(int argc, int *argv[]){
