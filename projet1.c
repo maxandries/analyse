@@ -3,6 +3,7 @@
 #include <unistd.h>
 
 #define SIZE_HEADER sizeof(struct block_header)
+#define align4(x) (((((x) -1) > >2) < <2)+4)
 struct block_header {
 	unsigned int size : 29,
 		     zero: 2,
@@ -33,7 +34,7 @@ void* mymalloc(size_t size){
 		
 	}
 	
-	int sizeTot = size + (4 - (size % 4)) + (int)SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
+	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
 	printf("sizeTot : %d\n", sizeTot);
 	if(!(first)){
 		printf("test 2/n");
