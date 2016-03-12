@@ -53,10 +53,10 @@ void* mymalloc(size_t size){
 		int sizep = (newBlock->size)-sizeTot;
 		newBlock->size = sizeTot;
 		struct block_header *freeOne = (newBlock->size)/4+newBlock;
-		freeOne->size = sizep;
+		first->size = sizep;
 		printf("taille freeOne : %d\n", freeOne->size);
 		newBlock->alloc = 1;
-		freeOne->alloc = 0;
+		first->alloc = 0;
 		return (void *)(newBlock+1);
 	}
 	printf("il y a rien\n");
