@@ -68,7 +68,7 @@ void* mymalloc(size_t size){
 
 void myfree(void *ptr){
 	printf("adresse pointeur : %p\n", ptr);
-	struct block_header *remov = ptr-1;
+	struct block_header *remov = ptr-4;
 	remov-> alloc = 0;
 }
 
