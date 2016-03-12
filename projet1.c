@@ -58,6 +58,17 @@ void* mymalloc(size_t size){
 
 void myfree(void *ptr){
 	struct block_header *remov = ptr-4;
+	remov-> alloc = 0;
+}
+
+void flattenheap(){
+	struct block_header *current = first;
+  	while (!(current + (current->size))) {
+  	if(!(current->alloc && (current+(current->size))->alloc)){
+  		current->size = (current->size)+ (current+(current->size))->size;
+  	}
+    current = current + current->size;
+  }
 }
 
 int main(int argc, int *argv[]){
