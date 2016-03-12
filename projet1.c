@@ -37,6 +37,7 @@ void* mymalloc(size_t size){
 		sbrk(memsize);
 		first->size = memsize;
 		first->alloc = 0;
+		printf("%d/n", (sbrk(0)-first));
 	}
 	struct block_header *freeOne = findFree(sizeTot);
 	if(!freeOne){
