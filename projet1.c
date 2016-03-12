@@ -38,6 +38,7 @@ void* mymalloc(size_t size){
 		first->alloc = 0;
 	}
 	struct block_header *newBlock = findFree(sizeTot);
+	printf("taille newBlock : %d", newbBlock->size);
 	if(!newBlock){
 			printf("bloc null\n");
 		return NULL; //pas de place libre
