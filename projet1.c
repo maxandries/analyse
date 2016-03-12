@@ -36,7 +36,7 @@ void* mymalloc(size_t size){
 	
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
 	printf("sizeTot : %d\n", sizeTot);//debug
-	if(!base){
+	if(1==1){
 		printf("test 2/n");//debug
 		first = sbrk(0);
 		sbrk(memsize);
