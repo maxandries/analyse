@@ -90,6 +90,6 @@ printf("adresse long: %p\n",a);
 int *t = (int *)mymalloc(sizeof(int));
 printf("adresse int2 : %p\n",t);
 myfree(p);
-int *test = int(int *)mymalloc(sizeof(int));
+int *test = (int *)mymalloc(sizeof(int));
 
 }
