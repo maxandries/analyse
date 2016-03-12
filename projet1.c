@@ -31,8 +31,8 @@ void* mymalloc(size_t size){
 		return NULL;
 	}
 	
-	int sizeTot = size + (4 - (size % 4)) + 4; //alignement sur 32bits et ajouts de la taille de la structure
-	printf("sizeTot : %d", sizeTot);
+	int sizeTot = size + (4 - (size % 4)) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
+	//printf("sizeTot : %d", sizeTot);
 	if(!(first)){
 		printf("test 2/n");
 		first = sbrk(0);
