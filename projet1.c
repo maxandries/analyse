@@ -17,7 +17,7 @@ struct block_header *findFree(size_t size) {
   while (!(current->alloc && current->size >= size)) {
     current = current + current->size;
   }
-  return *current;
+  return current;
 }
 
 struct block_header* splitBlock(struct block_header name){
