@@ -62,6 +62,7 @@ void* mymalloc(size_t size){
 		printf("test size \n");
 		freeOne->size = (freeOne->size)-sizeTot;
 		printf("adresse : %p\n",(freeOne+(freeOne->size)));
+		printf("limite heap : %p\n",sbrk(0));
 		struct block_header *newBlock = freeOne+(freeOne->size);
 		printf("struct created \n");
 		newBlock->size = sizeTot;
