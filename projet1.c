@@ -36,7 +36,7 @@ void* mymalloc(size_t size){
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
 	printf("sizeTot : %d\n", sizeTot);//debug
 	if(!first){
-		printf("test 2 test test test/n");//debug
+		printf("test 2/n");//debug
 		first = sbrk(0);
 		sbrk(memsize);
 		first->size = memsize;
@@ -44,7 +44,6 @@ void* mymalloc(size_t size){
 		printf("%d/n", (sbrk(0)-(void *)first));
 	}
 	printf("not null at first call?\n");//debug
-	printf("test\n");
 	struct block_header *freeOne = findFree(sizeTot);
 	if(!freeOne){
 		return NULL; //pas de place libre
