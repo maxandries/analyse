@@ -64,13 +64,14 @@ void myfree(void *ptr){
 void flattenheap(){
 	struct block_header *current = first;
   	while (!(current + (current->size))) {
-  	if(!(current->alloc && (current+(current->size))->alloc)){
-  		current->size = (current->size)+ (current+(current->size))->size;
+  		if(!(current->alloc && (current+(current->size))->alloc)){
+  			current->size = (current->size)+ (current+(current->size))->size;
+  		}
+    		current = current + current->size;
   	}
-    current = current + current->size;
-  }
 }
 
 int main(int argc, int *argv[]){
-
+int *p = (int *)mymalloc(sizeof(int));
+printf("adresse int: %p\n",p);
 }
