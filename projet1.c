@@ -42,6 +42,9 @@ void* mymalloc(size_t size){
 		first->alloc = 0;
 	}
 	struct block_header *freeOne = findFree(size);
+	if(!freeOne){
+		return NULL; //pas de place libre
+	}
 	
 	
 }
