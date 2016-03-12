@@ -55,14 +55,14 @@ void* mymalloc(size_t size){
 	}
 	printf("findfree ok\n");
 	if(freeOne->size == sizeTot){
-		return (void *)(freeOne+4);
+		return (void *)(freeOne+1);
 	}
 	if(sizeTot<freeOne->size){
 		freeOne->size = (freeOne->size)-sizeTot;
 		struct block_header *newBlock = freeOne+freeOne->size;
 		newBlock->size = sizeTot;
 		newBlock->alloc = 1;
-		return (void *)(newBlock+4);
+		return (void *)(newBlock+1);
 	}
 	return NULL;
 	
