@@ -14,6 +14,7 @@ int memsize = 40000;
 
 struct block_header *findFree(size_t size) {
   struct block_header *current = first;
+  printf("current OK\n");
   while (!(current->alloc && (current->size == size || current->size - size > 4))) {
   	if ((current+current->size) == sbrk(0)){
   		return NULL;
@@ -45,7 +46,7 @@ void* mymalloc(size_t size){
 	}
 	printf("not null at first call?\n");//debug
 	struct block_header *freeOne = findFree(sizeTot);
-	printf("findfree ok");
+	printf("findfree ok\n");
 	if(!freeOne){
 		return NULL; //pas de place libre
 	}
