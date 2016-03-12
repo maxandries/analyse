@@ -15,9 +15,9 @@ int taille_heap = 4000000;
 struct block_head *findFree(size_t size) {
   struct block_header *current = first;
   while (!(current->alloc && current->size >= size)) {
-    *current = &current + size;
+    *current = current + size;
   }
-  return *current;
+  return current;
 }
 
 struct block_header* splitBlock(struct block_header name){
