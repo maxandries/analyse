@@ -13,7 +13,7 @@ int taille_heap = 4000000;
 
 
 struct block_head *findFree(size_t size) {
-  struct block_head *current = *first;
+  struct block_header *current = *first;
   while (!(current->free && current->size >= size)) {
     *current = &current + size;
   }
