@@ -79,7 +79,7 @@ void* mymalloc(size_t size){
 }
 
 void myfree(void *ptr){
-	struct block_header *remov = ptr-4;
+	struct block_header *remov = ptr-1;
 	remov-> alloc = 0;
 }
 
