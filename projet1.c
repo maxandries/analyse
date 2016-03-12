@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #define SIZE_HEADER sizeof(struct block_header)
-#define align4(x) (((((x) -1) > >2) < <2)+4)
+#define align4(x) (((((x) -1)>>2)<<2)+4)
 struct block_header {
 	unsigned int size : 29,
 		     zero: 2,
