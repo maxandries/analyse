@@ -48,30 +48,23 @@ void* mymalloc(size_t size){
 		printf("%d \n", (sbrk(0)-(void *)first));
 	}
 	printf("not null at first call?\n");//debug
-	struct block_header *freeOne = findFree(sizeTot);
-	if(!freeOne){
+	struct block_header *newBlock = findFree(sizeTot);
+	if(!newBlock){
 		printf("findfree null\n");
 		return NULL; //pas de place libre
 	}
 	printf("findfree ok\n");
-	if(freeOne->size == sizeTot){
+	if(newBlock->size == sizeTot){
 		
-		return (void *)(freeOne+1);
+		return (void *)(newBlock+1);
 	}
 	if(sizeTot<freeOne->size){
-		printf("test size : %d \n", freeOne->size);
-		freeOne->size = (freeOne->size)-sizeTot;
-		printf("test size 2: %d\n", freeOne->size);
-		printf("adresse : %p\n",(freeOne+(freeOne->size)));
-		printf("limite heap : %p\n",sbrk(0));
-		struct block_header *newBlock = (freeOne->size)/4+freeOne;
-		printf("struct created: %p \n", newBlock);
-		printf("size: %d\n", sizeTot);
-		printf("difference :%d\n", sbrk(0)-(void *)newBlock);
-		printf("sizeTot: %d\n", newBlock->size);
+		int sizep = (newBlock->size)-sizeTot;
 		newBlock->size = sizeTot;
-		printf("size allocated\n");
+		struct block_header *freeOne = (newBlock->size)/4+newBlock;
+		freeOne->size = sizep;
 		newBlock->alloc = 1;
+		freeOne->alloc = 0;
 		return (void *)(newBlock+1);
 	}
 	return NULL;
