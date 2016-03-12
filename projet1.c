@@ -9,7 +9,7 @@ struct block_header {
 		     alloc: 1;
 };
 struct block_header *first = NULL;
-int taille_heap = 4000000;
+int memsize = 4000;
 
 
 struct block_header *findFree(size_t size) {
@@ -34,8 +34,8 @@ void* mymalloc(size_t size){
 	
 	if(!(first)){
 		first = sbrk(0);
-		sbrk(taille_heap);
-		first->size = taille_heap;
+		sbrk(memsize);
+		first->size = memsize;
 		first->alloc = 0;
 	}
 	struct block_header *freeOne = findFree(sizeTot);
@@ -52,6 +52,11 @@ void* mymalloc(size_t size){
 		newBlock->alloc = 1;
 		return (void *)(newBlock+4);
 	}
+	return NULL;
+	
+}
+
+void myfree(void *ptr){
 	
 }
 
