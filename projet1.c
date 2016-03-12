@@ -45,6 +45,9 @@ void* mymalloc(size_t size){
 	if(!freeOne){
 		return NULL; //pas de place libre
 	}
+	if(freeOne->size == sizeTot){
+		return (void *)(freeOne+4);
+	}
 	
 	
 }
