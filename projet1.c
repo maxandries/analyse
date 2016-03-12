@@ -20,7 +20,7 @@ struct block_header *findFree(size_t size) {
 			printf("sbrk(0) meet\n");
 			return NULL;
 		}
-		current = current + current->size;
+		current = current + (current->size)/4;
 	}
 	return current;
 }
