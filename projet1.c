@@ -46,7 +46,7 @@ void* mymalloc(size_t size){
 		return (void *)(freeOne+4);
 	}
 	if(sizeTot<freeOne->size){
-		freeOne->size = (freeOne->size)->sizeTot;
+		freeOne->size = (freeOne->size)-sizeTot;
 		struct block_header *newBlock = freeOne+freeOne->size;
 		newBlock->size = sizeTot;
 		newBlock->alloc = 1;
