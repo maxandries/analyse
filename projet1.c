@@ -28,7 +28,7 @@ struct block_header *findFree(size_t size) {
 void* mymalloc(size_t size){
 	printf("test\n");
 	if(size <= 0){
-		printf("null")
+		printf("null");
 		return NULL;
 		
 	}
