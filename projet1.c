@@ -76,12 +76,14 @@ void myfree(void *ptr){
 		}
 		remov->alloc = 0;
 	}
+	else{
 	remov->alloc =0;
 	while((current+(current->size)/4)!=remov){
 		current = (current+(current->size)/4);
 	}
 	if(current->alloc == 0){
 		current->size = current->size + remov->size;
+	}
 	}
 }
 
