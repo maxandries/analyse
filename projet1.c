@@ -72,6 +72,7 @@ void myfree(void *ptr){
 	if(((remov+(remov->size)/4))->alloc == 0 ){
 		remov->size = remov->size + ((remov+(remov->size)/4))->size;
 	}
+	if(remov !=first){
 	struct block_header *current = first;
 	while ((current+(current->size)/4)!= remov) {
 		current = current + (current->size)/4;
@@ -79,6 +80,7 @@ void myfree(void *ptr){
 	if(current->alloc = 0){
 		current->size = current->size+remov->size;
 		
+	}
 	}
 	remov-> alloc = 0;
 }
