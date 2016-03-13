@@ -66,6 +66,7 @@ void *mycalloc(size_t size)
 		*p++ = 0;
 		i++;
 	}
+	p = p-size;
 	return (void *)p;
 }
 
