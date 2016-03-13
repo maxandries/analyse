@@ -17,7 +17,6 @@ struct block_header *findFree(size_t size) {
 	while ((current->alloc == 1 && (current->size != size || (current->size)-size < 4))) {
 		printf("current size : %d and current alloc: %d\n",current->size, current->alloc);
 		if ((current+current->size) == sbrk(0)){
-			printf("sbrk(0) meet\n");
 			return NULL;
 		}
 		current = current + (current->size)/4;
@@ -42,32 +41,25 @@ void* mymalloc(size_t size){
 	struct block_header *newBlock = findFree(sizeTot);
 	printf("taille newBlock : %d\n", newBlock->size);
 	if(!newBlock){
-			printf("bloc null\n");
 		return NULL; //pas de place libre
 	}
 	if(newBlock->size == sizeTot){
-		printf("bloc egal\n");
-		
 		return (void *)(newBlock+1);
 	}
 	if(sizeTot<newBlock->size){
-		printf("test\n");
 		int sizep = (newBlock->size)-sizeTot;
 		newBlock->size = sizeTot;
 		struct block_header *freeOne = (newBlock->size)/4+newBlock;
 		freeOne->size = sizep;
-		printf("taille first : %d\n", first->size);
 		newBlock->alloc = 1;
 		freeOne->alloc = 0;
 		return (void *)(newBlock+1);
 	}
-	printf("il y a rien\n");
 	return NULL;
 	
 }
 
 void myfree(void *ptr){
-	printf("adresse pointeur : %p\n", ptr);
 	struct block_header *remov = ptr-4;
 	struct block_header *current = first;
 	if(remov==first){
@@ -97,5 +89,6 @@ printf("adresse int2 : %p\n",t);
 myfree(p);
 myfree(a);
 int *test = (int *)mymalloc(sizeof(int));
+printf("adresse int3 : %p\n",test);
 
 }
