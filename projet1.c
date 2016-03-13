@@ -69,23 +69,20 @@ void* mymalloc(size_t size){
 void myfree(void *ptr){
 	printf("adresse pointeur : %p\n", ptr);
 	struct block_header *remov = ptr-4;
-	
-	if(((remov+(remov->size)/4))->alloc == 0 ){
-		remov->size = remov->size + ((remov+(remov->size)/4))->size;
-		printf("taille 2 remov : %d", remov->size);
-	}
-	if(remov !=first){
 	struct block_header *current = first;
-	while ((current+(current->size)/4)!= remov) {
-		current = current + (current->size)/4;
+	if(remov==first){
+		if((first+(first->size)/4)->alloc==0){
+			remov->size = remov->size + (first+(first->size)/4)->size;
+		}
+		remov->alloc = 0;
 	}
-	if(current->alloc = 0){
-		printf("taille 1 current : %d", current->size);
-		current->size = current->size+remov->size;
-		printf("taille 2 current : %d", current->size);
+	remov->alloc =0;
+	while((current+(current->size)/4)!=remov){
+		current = (current+(current->size)/4);
 	}
+	if(current->alloc == 0){
+		current->size = current->size + remov->size;
 	}
-	remov-> alloc = 0;
 }
 
 int main(int argc, int *argv[]){
