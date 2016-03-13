@@ -60,13 +60,13 @@ void* mymalloc(size_t size){
 
 void *mycalloc(size_t size)
 {
-	void *p = mymalloc(size);
+	char *p = mymalloc(size);
 	void i = 0;
 	while(i<size){
 		*p++ = 0;
 		i++;
 	}
-	return p;
+	return (void *)p;
 }
 
 void myfree(void *ptr){
