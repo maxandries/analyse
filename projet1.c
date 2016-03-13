@@ -60,12 +60,13 @@ void* mymalloc(size_t size){
 
 void *mycalloc(size_t size)
 {
-	void *p = malloc(size);
-	int sizeTot = align4(size) + SIZE_HEADER;
-	
-	if (!p) return NULL;
-	
-	return memset(p, 0, sizeTot);
+	void *p = mymalloc(size);
+	int i = 0;
+	while(i<size){
+		*(p+i) = 0;
+		i++;
+	}
+	return p;
 }
 
 void myfree(void *ptr){
