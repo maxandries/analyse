@@ -61,7 +61,7 @@ void* mymalloc(size_t size){
 void *mycalloc(size_t size)
 {
 	char *p = mymalloc(size);
-	void i = 0;
+	int i = 0;
 	while(i<size){
 		*p++ = 0;
 		i++;
