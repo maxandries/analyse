@@ -57,6 +57,17 @@ void* mymalloc(size_t size){
 	
 }
 
+
+void *mycalloc(size_t size)
+{
+	void *p = malloc(size);
+	int sizeTot = align4(size) + SIZE_HEADER;
+	
+	if (!p) return NULL;
+	
+	return memset(p, 0, sizeTot);
+}
+
 void myfree(void *ptr){
 	struct block_header *remov = ptr-4;
 	struct block_header *current = first;
@@ -88,5 +99,7 @@ myfree(p);
 myfree(a);
 int *test = (int *)mymalloc(sizeof(int));
 printf("adresse int3 : %p\n",test);
+int *test1 = (int *)mycalloc(sizeof(int));
+printf("adresse int4 : %p\n",test1);
 
 }
