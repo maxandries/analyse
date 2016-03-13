@@ -69,17 +69,10 @@ void* mymalloc(size_t size){
 void myfree(void *ptr){
 	printf("adresse pointeur : %p\n", ptr);
 	struct block_header *remov = ptr-4;
+	if(((remov+(remov->size)/4))->alloc == 0 ){
+		remov->size = remov->size + ((remov+(remov->size)/4))->size;
+	}
 	remov-> alloc = 0;
-}
-
-void flattenheap(){
-	struct block_header *current = first;
-  	while (!(current + (current->size))) {
-  		if(!(current->alloc && (current+(current->size))->alloc)){
-  			current->size = (current->size)+ (current+(current->size))->size;
-  		}
-    		current = current + current->size;
-  	}
 }
 
 int main(int argc, int *argv[]){
