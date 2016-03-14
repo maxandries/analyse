@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "mymalloc.h"
 
 #define SIZE_HEADER sizeof(struct block_header)
 #define align4(x) (((((x) -1)>>2)<<2)+4)
