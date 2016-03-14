@@ -82,6 +82,9 @@ void myfree(void *ptr){
 	}
 	else{
 	remov->alloc =0;
+	if((remov+(remov->size)/4)->alloc == 0){
+		remov->size = remov->size +(remov+(remov->size)/4)->size; 
+	}
 	while((current+(current->size)/4)!=remov){
 		current = (current+(current->size)/4);
 	}
