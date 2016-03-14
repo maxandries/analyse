@@ -42,6 +42,7 @@ void* mymalloc(size_t size){
 		return NULL; //pas de place libre
 	}
 	if(newBlock->size == sizeTot){
+		newBlock->alloc = 1;
 		return (void *)(newBlock+1);
 	}
 	if(sizeTot<newBlock->size){
