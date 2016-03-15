@@ -33,7 +33,7 @@ void test3(void){
 void test4(void){
   char *a = mymalloc(sizeof(char));
   myfree(a);
-  CU_ASSERT_FALSE(((struct block_header *)(a-4)->alloc);
+  CU_ASSERT_FALSE(((struct block_header *)(a-4))->alloc);
 }
 
 
