@@ -19,7 +19,7 @@ void test1(void){
 
 //espace memoire insuffisant lors d'un appel à malloc
  void test2(void){
-  char *ptr = (char *) mymalloc(92);
+  char *ptr = (char *) mymalloc(992);
   long *ptr2 = (long *)mymalloc(sizeof(long));
   myfree(ptr);
   CU_ASSERT_PTR_NULL(ptr2);
