@@ -16,12 +16,13 @@ void test1(void){
   CU_ASSERT_PTR_EQUAL(d, b);
 }
 //espace memoire insuffisant lors d'un appel à malloc
-void test2(void){
+ void test2(void){
+  char *ptr = (char *) mymalloc(96);
   char *ptr = (char *) mymalloc(90);
   long *ptr2 = (long *)mymalloc(sizeof(long));
-  printf("test %p\n", ptr2);
-  CU_ASSERT_PTR_NULL(*ptr);
-}
+  printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
+  CU_ASSERT_PTR_NULL(ptr2);
+ }
 //regarde si mycalloc remet tout a zero
 void test3(void){
   int check = 0;
