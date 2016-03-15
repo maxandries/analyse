@@ -30,7 +30,7 @@ void test1(void){
 //test de la fonction calloc
 void test3(void){
 int *ptr =(int *) mycalloc(sizeof(int));
-int a = (int) ptr;
+int a = (int) *ptr;
 CU_ASSERT_FALSE(a);
 }
 
