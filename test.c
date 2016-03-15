@@ -37,10 +37,10 @@ CU_ASSERT_FALSE(a);
 //test de myfree ou verifie si un block se dessalloue correctement
 void test4(void){
 char *ptr = (char *) mymalloc(sizeof(int));
-int a = (int*) ptr;
+int a = (int) ptr;
 myfree(ptr);
 char *ptr2 = (char *) mymalloc(sizeof(int));
-int b = (int*) ptr2;
+int b = (int) ptr2;
 myfree(ptr2);
 int heyyy = b - a;
 CU_ASSERT_FALSE(heyyy);
@@ -62,11 +62,11 @@ CU_ASSERT_FALSE(hey);
 void test6(void){
 char *ptr = (char *) mymalloc(sizeof(char));
 char *ptr2 = (char *) mymalloc(sizeof(char));
-int a = (int *) ptr;
+int a = (int) ptr;
 myfree(ptr);
 myfree(ptr2);
 long *ptr3 = (long *) mymalloc(sizeof(long));
-int c = (int *) ptr3;
+int c = (int) ptr3;
 int d = a - c;
 CU_ASSERT_FALSE(d);
 }
