@@ -43,20 +43,21 @@ void test3(void){
     printf("%d\n", i);
     i++;
   }
+  myfree(a);
   CU_ASSERT_FALSE(check);
 }
 //verifie si un block se dessalloue correctement
-/*void test4(void){
+void test4(void){
   char *a = mymalloc(sizeof(char));
   myfree(a);
   CU_ASSERT_FALSE(((struct block_header *)(a-4))->alloc);
 }
 
-//test la fragmentation interne ou vérification du respect de l'alignement des blocs
+//test la fragmentation interne
 void test5(void){
 char *ptr = (char *) mymalloc(1);
 char *ptr2 = (char *) mymalloc(1);
-int hey = ptr + 4 - ptr2;
+int hey = ptr + 8 - ptr2;
 CU_ASSERT_FALSE(hey);
 }
 
@@ -73,7 +74,7 @@ int yo = ptr3 + 8 - ptr4;
 int salut = hey - yo;
 CU_ASSERT_FALSE(salut);
 }
-*/
+
 
 
 int main(){
@@ -93,10 +94,10 @@ int main(){
   } 
   if ((NULL == CU_add_test(pSuite, "Test 1", test1)) || 
   (NULL == CU_add_test(pSuite, "Test 2", test2)) || 
-  (NULL == CU_add_test(pSuite, "Test 3", test3)) /*||
-  (NULL == CU_add_test(pSuite, "Test 4",test4))
-  (NULL == CU_add_test(pSuite, "Test 5",test5))
-  (NULL == CU_add_test(pSuite, "Test 6",test6))*/){
+  (NULL == CU_add_test(pSuite, "Test 3", test3)) ||
+  (NULL == CU_add_test(pSuite, "Test 4",test4))|| 
+  (NULL == CU_add_test(pSuite, "Test 5", test5))||
+  (NULL == CU_add_test(pSuite, "Test 6",test6))){
     CU_cleanup_registry();
     return CU_get_error();
   }
