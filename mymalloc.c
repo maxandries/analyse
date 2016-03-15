@@ -106,5 +106,5 @@ int *test = (int *)mymalloc(sizeof(int));
 printf("adresse int3 : %p\n",test);
 int *test1 = (int *)mycalloc(sizeof(int));
 printf("adresse int4 : %p\n",test1);
-*/
-}
+
+}*/
