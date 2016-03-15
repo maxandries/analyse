@@ -13,7 +13,7 @@ int memsize = 4000000;//taille du heap
 struct block_header *findFree(size_t size) {
 	struct block_header *current = first; //premier bloc du heap
 	while ((current->alloc == 1 && (current->size != size || (current->size)-size < 4))) {
-		if ((current+current->size) >= sbrk(0)){
+		if ((current+current->size) == sbrk(0)){
 			return NULL;
 		}
 		current = current + (current->size)/4; // size/4 car lorsqu'on fait +1, on avance d'une fois la taille de la structure
@@ -89,21 +89,3 @@ void myfree(void *ptr){
 	}
 }
 
-
-/*int main(int argc, char *argv[]){
-printf("memsize : %d\n",memsize);
-int *p = (int *)mymalloc(sizeof(int));
-printf("adresse int: %p\n",p);
-long *a = (long *)mymalloc(sizeof(long));
-printf("adresse long: %p\n",a);
-int *t = (int *)mymalloc(sizeof(int));
-printf("adresse int2 : %p\n",t);
-myfree(p);
-myfree(a);
-int *test = (int *)mymalloc(sizeof(int));
-printf("adresse int3 : %p\n",test);
-int *test1 = (int *)mycalloc(sizeof(int));
-printf("adresse int4 : %p\n",test1);
-
-}
-¨*/
