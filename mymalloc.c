@@ -81,6 +81,7 @@ void myfree(void *ptr){
 		if(current == sbrk(0)){
 			bool = 1;
 		}
+		printf("infinite LOOP\n");
 	}
 	if(bool == 0){
 	current = first;
