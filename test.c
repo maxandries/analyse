@@ -80,7 +80,7 @@ void test8(void){
   CU_ASSERT_PTR_NULL(mymalloc(81236542356879524621365245884531));
 }
 
-//test la fragmentation externe
+//test la fragmentation externe, (avec le test 1)
 void test9(void){
   long *a = (long *)mymalloc(sizeof(long));
   int *b = (int *)mymalloc(sizeof(int));
