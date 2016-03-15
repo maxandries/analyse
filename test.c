@@ -12,14 +12,10 @@ void test1(void){
   int *d =(int *)mymalloc(sizeof(int));
   CU_ASSERT_PTR_EQUAL(d, b);
 }
-//une taille negative retourne NULL
+//espace memoire insuffisant lors d'un appel à malloc
 void test2(void){
-  *ptr = mymalloc(3999999)
-  long *b = (long *)mymalloc(sizeof(long))
-  size_t taille = -1;
-  char *a = mymalloc(taille);
-  printf("adresse test 2 :%p\n",a);
-  CU_ASSERT_PTR_NULL(a);
+  *ptr = mymalloc(3999999);
+  CU_ASSERT_PTR_NULL( (long *)mymalloc(sizeof(long)));
 }
 //regarde si mycalloc remet tout a zero
 void test3(void){
