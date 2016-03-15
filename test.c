@@ -81,18 +81,18 @@ void test8(void){
 }
 
 //test la fragmentation externe, (avec le test 1)
-/*void test9(void){
+void test9(void){
   long *a = (long *)mymalloc(sizeof(long));
   int *b = (int *)mymalloc(sizeof(int));
   long *c = (long *)mymalloc(sizeof(long));
   myfree(b);
   long *d =(long *)mymalloc(sizeof(long));
-  myfree(a);
-  myfree(c);
-  myfree(d);
+  //myfree(a);
+  //myfree(c);
+  //myfree(d);
   CU_ASSERT_PTR_EQUAL(d, c+12);
 }
-*/
+
  int main(){
   if (CUE_SUCCESS != CU_initialize_registry()) 
     return CU_get_error();
