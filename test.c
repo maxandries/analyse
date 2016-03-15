@@ -26,25 +26,12 @@ void test1(void){
   CU_ASSERT_PTR_NULL(ptr2);
  }
  
-//regarde si mycalloc remet tout a zero
+//regarde si mycalloc remet tout a zero ou
+//test de la fonction calloc
 void test3(void){
-  printf("enter test 3\n");
-  int check = 0;
-  char *a =(char *)mycalloc(10*(sizeof(char)));
-  char *b = a;
-  printf("malloc OK\n");
-  int i = 0;
-  while(i<10){
-    if(*(b+i) != 0){
-      printf("not equal to 0\n");
-      check = 1;
-    }
-    printf("adresse : %p", (char *)(b+i));
-    printf("%d\n", i);
-    i++;
-  }
-  //myfree(a);
-  CU_ASSERT_FALSE(check);
+int *ptr =(int *) mycalloc(sizeof(int));
+int a = (int) ptr;
+CU_ASSERT_FALSE(a);
 }
 
 //test de myfree ou verifie si un block se dessalloue correctement
