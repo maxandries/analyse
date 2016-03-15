@@ -4,18 +4,19 @@
 #include "mymalloc.h"
 
 #define SIZE_HEADER sizeof(struct block_header)
-#define align4(x) (((((x)-1)>>2)<<2)+4)
+#define align4(x) (((((x)-1)>>2)<<2)+4) //fonction permettant l'aligment sur 4bits de la taille.
 
-struct block_header *first = NULL;
-int memsize = 4000000;
+struct block_header *first = NULL;//structure permettant la creation du premier (premier appel a mymalloc/mycalloc)
+int memsize = 4000000;//taille du heap
 
+//fonction permettant de trouver un bloc libre et le cas echeant retourne null
 struct block_header *findFree(size_t size) {
-	struct block_header *current = first;
+	struct block_header *current = first; //premier bloc du heap
 	while ((current->alloc == 1 && (current->size != size || (current->size)-size < 4))) {
 		if ((current+current->size) == sbrk(0)){
 			return NULL;
 		}
-		current = current + (current->size)/4;
+		current = current + (current->size)/4; // size/4 car lorsqu'on fait +1, on avance d'une fois la taille de la structure
 	}
 	return current;
 }
@@ -24,7 +25,7 @@ struct block_header *findFree(size_t size) {
 void* mymalloc(size_t size){
 	
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
-	if(!first){
+	if(!first){ //si first == NULL, premier appel de malloc on initialise le heap
 		first = sbrk(0);
 		sbrk(memsize);
 		first->size = memsize;
