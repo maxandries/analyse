@@ -29,16 +29,17 @@ void test1(void){
 //regarde si mycalloc remet tout a zero
 void test3(void){
   printf("enter test 3\n");
-int check = 0;
+  int check = 0;
   char *a =(char *)mycalloc(10*(sizeof(char)));
+  char *b = a;
   printf("malloc OK\n");
   int i = 0;
   while(i<10){
-    if(*(a+i) != 0){
+    if(*(b+i) != 0){
       printf("not equal to 0\n");
       check = 1;
     }
-    printf("adresse : %p", (char *)(a+i));
+    printf("adresse : %p", (char *)(b+i));
     printf("%d\n", i);
     i++;
   }
