@@ -43,7 +43,7 @@ void test3(void){
     printf("%d\n", i);
     i++;
   }
-  myfree(a);
+  //myfree(a);
   CU_ASSERT_FALSE(check);
 }
 //verifie si un block se dessalloue correctement
