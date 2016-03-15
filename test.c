@@ -4,20 +4,31 @@
 #include "CUnit.h"
 //test 1, le int se remet-il a la bonne place?
 void test1(void){
-  long *a = mymalloc(sizeof(int));
-  int *b = mymalloc(sizeof(int));
-  long *c = mymalloc(sizeof(long));
+  long *a = (long *)mymalloc(sizeof(int));
+  int *b = (int *)mymalloc(sizeof(int));
+  long *c = (long *)mymalloc(sizeof(long));
   myfree(b);
-  int *d = mymalloc(sizeof(int));
+  int *d =(int *)mymalloc(sizeof(int));
   CU_ASSERT_PTR_EQUAL(d, b);
 }
 //une taille negative retourne NULL
 void test2(void){
-  char *a = mymalloc(-1);
+  char *a = (char *)mymalloc(-1);
   CU_ASSERT_PTR_NULL(a);
 }
-
-void test3
+//regarde si mycalloc remet tout a zero
+void test3(void){
+  int check = 0;
+  char *a = mycalloc(10*(sizeof(char)));
+  int i = 0;
+  while(i<10){
+    if(*(a+i) != 0){
+      check = 1;
+    }
+    i++;
+  }
+  CU_ASSERT_FALSE(check);
+}
 
 
 int main(){
