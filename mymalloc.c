@@ -82,7 +82,7 @@ void myfree(void *ptr){
 			bool = 1;
 		}
 		printf("infinite LOOP\n");
-		printf("adresse %p\n",current);
+		printf("adresse %p, taille: %d\n",current, current->size);
 	}
 	if(bool == 0){
 	current = first;
