@@ -17,7 +17,6 @@ void test1(void){
 }
 //espace memoire insuffisant lors d'un appel à malloc
  void test2(void){
-  char *ptr = (char *) mymalloc(96);
   char *ptr = (char *) mymalloc(90);
   long *ptr2 = (long *)mymalloc(sizeof(long));
   printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
