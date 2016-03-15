@@ -91,7 +91,7 @@ void test9(void){
   //myfree(a);
   //myfree(c);
   //myfree(d);
-  CU_ASSERT_PTR_EQUAL(d, c+8);
+  CU_ASSERT_PTR_EQUAL(d, c+12);
 }
 
  int main(){
