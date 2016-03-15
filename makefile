@@ -4,6 +4,6 @@ mymalloc.o: mymalloc.c mymalloc.h
 test.o: test.c mymalloc.h
 	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib -lcunit -c test.c 
 hello: mymalloc.o test.o
-	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib -lcunit -o hello mymalloc.o test.o
+	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib -lcunit mymalloc.o test.o -o hello 
 clean:
 	rm -f *.o
