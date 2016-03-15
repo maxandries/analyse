@@ -75,14 +75,14 @@ void *mycalloc(size_t size)
 void myfree(void *ptr){
 	struct block_header *remov = ptr-4;
 	struct block_header *current = first;
+	printf("first ->size : %d\n", first->size);
 	int bool = 0;
 	while(current != ptr-4){
 		current = (current+(current->size)/4);
 		if(current == sbrk(0)){
 			bool = 1;
 		}
-		printf("infinite LOOP\n");
-		printf("adresse %p, taille: %d\n",current, current->size);
+		
 	}
 	if(bool == 0){
 	current = first;
