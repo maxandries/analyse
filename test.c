@@ -23,7 +23,7 @@ void test1(void){
   if(ptr2==NULL){
     printf("putain de merde j'en ai marre\n");
   }
-  CU_ASSERT_PTR_NULL((void *)ptr2);
+  CU_ASSERT_PTR_EQUAL(ptr2, NULL);
  }
 //regarde si mycalloc remet tout a zero
 void test3(void){
