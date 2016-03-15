@@ -11,11 +11,14 @@ void test1(void){
   int *d = mymalloc(sizeof(int));
   CU_ASSERT_PTR_EQUAL(d, b);
 }
-
+//une taille negative retourne NULL
 void test2(void){
   char *a = mymalloc(-1);
   CU_ASSERT_PTR_NULL(a);
 }
+
+void test3
+
 
 int main(){
   if (CUE_SUCCESS != CU_initialize_registry()) 
