@@ -75,6 +75,13 @@ void *mycalloc(size_t size)
 void myfree(void *ptr){
 	struct block_header *remov = ptr-4;
 	struct block_header *current = first;
+	while(current != ptr-4){
+		current = current+(current->size)/4;
+		if(current == sbrk(0)){
+			return NULL;
+		}
+	}
+	current = first;
 	if(remov==first){
 		if((first+(first->size)/4)->alloc==0){
 			remov->size = remov->size + (first+(first->size)/4)->size;
@@ -84,6 +91,7 @@ void myfree(void *ptr){
 	else{
 	remov->alloc =0;
 	if((remov+(remov->size)/4)->alloc == 0){
+		
 		remov->size = remov->size +(remov+(remov->size)/4)->size; 
 	}
 	while((current+(current->size)/4)!=remov){
