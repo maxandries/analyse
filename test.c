@@ -53,7 +53,7 @@ void test4(void){
   CU_ASSERT_FALSE(((struct block_header *)(a-4))->alloc);
 }
 
-//test la fragmentation interne
+//test la fragmentation interne ou vérification du respect de l'alignement des blocs
 void test5(void){
 char *ptr = (char *) mymalloc(1);
 char *ptr2 = (char *) mymalloc(1);
