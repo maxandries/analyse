@@ -29,7 +29,10 @@ void* mymalloc(size_t size){
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
 	if(!first){ //si first == NULL, premier appel de malloc on initialise le heap
 		first = sbrk(0);
-		sbrk(memsize);
+		void *request = sbrk(memsize);
+		if(*request==(void *)-1){
+			return NULL;
+		}
 		first->size = memsize;
 		first->alloc = 0;
 	}
