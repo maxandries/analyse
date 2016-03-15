@@ -73,12 +73,12 @@ CU_ASSERT_FALSE(hey);
 //test la fragmentation externe
 void test6(void){
 printf("test 6");
-long *ptr = (char *) mymalloc(sizeof(long));
-int *ptr2 = (char *) mymalloc(sizeof(int));
-long *ptr3 = (char *) mymalloc(sizeof(long));
+long *ptr = (long *) mymalloc(sizeof(long));
+int *ptr2 = (int *) mymalloc(sizeof(int));
+long *ptr3 = (long *) mymalloc(sizeof(long));
 myfree(ptr2);
-long *ptr4 = (char *) mymalloc(sizeof(long));
-int *ptr5 = (char *) mymalloc(sizeof(int));
+long *ptr4 = (long *) mymalloc(sizeof(long));
+int *ptr5 = (int *) mymalloc(sizeof(int));
 int hey = ptr + 8 - ptr5;
 int yo = ptr3 + 12 - ptr4;
 int salut = hey - yo;
