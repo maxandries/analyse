@@ -93,6 +93,7 @@ void myfree(void *ptr){
 }
 
 int main(int argc, char *argv[]){
+	printf("memsize : %d\n",memsize);
 int *p = (int *)mymalloc(sizeof(int));
 printf("adresse int: %p\n",p);
 long *a = (long *)mymalloc(sizeof(long));
