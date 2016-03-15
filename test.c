@@ -10,6 +10,9 @@ void test1(void){
   long *c = (long *)mymalloc(sizeof(long));
   myfree(b);
   int *d =(int *)mymalloc(sizeof(int));
+  free(a);
+  free(c);
+  free(d);
   CU_ASSERT_PTR_EQUAL(d, b);
 }
 //espace memoire insuffisant lors d'un appel à malloc
