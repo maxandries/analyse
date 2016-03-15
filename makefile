@@ -1,5 +1,7 @@
-hello: test
-mymalloc: mymalloc.c mymalloc.h
-	gcc -o mymalloc mymalloc.c   
-test: test.c
-	gcc -o test test.c mymalloc.c -I$(HOME)/local/include/ -L$(HOME)/local/lib -lcunit
+all : hello
+mymalloc.o: mymalloc.c mymalloc.h
+	gcc -o mymalloc.c   
+test.o: test.c mymalloc.h
+	gcc -o test.c -I$(HOME)/local/include/ -L$(HOME)/local/lib -lcunit
+hello: mymalloc.o test.o
+	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib -lcunit -o hello mymalloc.o test.o
