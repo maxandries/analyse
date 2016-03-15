@@ -30,6 +30,7 @@ void test1(void){
 void test3(void){
 int *ptr =(int *) mycalloc(sizeof(int));
 int a = (int) *ptr;
+myfree(ptr);
 CU_ASSERT_FALSE(a);
 }
 
@@ -87,8 +88,6 @@ void test9(void){
   long *c = (long *)mymalloc(sizeof(long));
   myfree(b);
   long *d =(long *)mymalloc(sizeof(long));
-  printf("size b: %d; size a: %d\n",sizeof(*b), sizeof(*a));
-  printf("adresse b: %p, adresse d: %p",b, d);
   //myfree(a);
   //myfree(c);
   //myfree(d);
