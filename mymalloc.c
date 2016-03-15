@@ -22,10 +22,6 @@ struct block_header *findFree(size_t size) {
 
 
 void* mymalloc(size_t size){
-	if(size<0){
-		return (void *)NULL;
-		
-	}
 	
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
 	if(!first){
