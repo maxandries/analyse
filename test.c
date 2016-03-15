@@ -29,13 +29,16 @@ void test1(void){
  
 //regarde si mycalloc remet tout a zero
 void test3(void){
+  printf("enter test 3\n");
 int check = 0;
   char *a = mycalloc(10*(sizeof(char)));
+  printf("malloc OK\n")
   int i = 0;
   while(i<10){
     if(*(a+i) != 0){
       check = 1;
     }
+    printf("%d\n", i);
     i++;
   }
   CU_ASSERT_FALSE(check);
