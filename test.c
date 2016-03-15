@@ -15,6 +15,7 @@ void test1(void){
 //une taille negative retourne NULL
 void test2(void){
   char *a = (char *)mymalloc(-1);
+  printf("adresse test 2 :%p\n",a);
   CU_ASSERT_PTR_NULL(a);
 }
 //regarde si mycalloc remet tout a zero
