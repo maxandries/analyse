@@ -70,7 +70,21 @@ myfree(ptr2);
 CU_ASSERT_FALSE(hey);
 }
 
+//test de la fusion de deux blocs libres
+consécutifs de façon à obtenir un plus grand bloc
+void test6(void){
+char *ptr = (char *) mymalloc(sizeof(char));
+char *ptr2 = (char *) mymalloc(sizeof(char));
+int a = (int *) ptr;
+myfree(ptr);
+myfree(ptr2);
+long *ptr3 = (long *) mymalloc(sizeof(long));
+int c = (int *) ptr3;
+int d = a - c;
+CU_ASSERT_FALSE(d);
+}
 
+//test la fragmentation externe
 
 
 int main(){
@@ -92,7 +106,8 @@ int main(){
   (NULL == CU_add_test(pSuite, "Test 2", test2)) || 
   (NULL == CU_add_test(pSuite, "Test 3", test3)) ||
   (NULL == CU_add_test(pSuite, "Test 4",test4))|| 
-  (NULL == CU_add_test(pSuite, "Test 5", test5))){
+  (NULL == CU_add_test(pSuite, "Test 5", test5))||
+  (NULL == CU_add_test(pSuite, "Test 6", test6))){
     CU_cleanup_registry();
     return CU_get_error();
   }
