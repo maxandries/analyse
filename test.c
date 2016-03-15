@@ -79,7 +79,7 @@ long *ptr3 = (long *) mymalloc(sizeof(long));
 myfree(ptr2);
 long *ptr4 = (long *) mymalloc(sizeof(long));
 int *ptr5 = (int *) mymalloc(sizeof(int));
-int hey = ptr + 8 - ptr5;
+int hey = ptr+ 8-(long int)ptr5;
 int yo = ptr3 + 12 - ptr4;
 int salut = hey - yo;
 myfree(ptr);
