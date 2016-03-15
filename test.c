@@ -55,7 +55,7 @@ myfree(a);
 */
 //test la fragmentation interne ou vérification du respect de l'alignement des blocs
 void test5(void){
-  printf("test 5\n")
+  printf("test 5\n");
 char *ptr = (char *) mymalloc(1);
 char *ptr2 = (char *) mymalloc(1);
 int hey = ptr + 8 - ptr2;
