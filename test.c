@@ -15,7 +15,9 @@ void test1(void){
 //espace memoire insuffisant lors d'un appel à malloc
 void test2(void){
   long *ptr =(long *) mymalloc(3999999);
-  CU_ASSERT_PTR_NULL( (long *)mymalloc(sizeof(long)));
+  long *ptr2 = (long *)mymalloc(sizeof(long));
+  printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
+  CU_ASSERT_PTR_NULL(ptr2);
 }
 //regarde si mycalloc remet tout a zero
 void test3(void){
