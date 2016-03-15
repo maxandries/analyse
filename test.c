@@ -20,7 +20,7 @@ void test2(void){
   char *ptr = (char *) mymalloc(90);
   long *ptr2 = (long *)mymalloc(sizeof(long));
   printf("test %p\n", ptr2);
-  CU_ASSERT_PTR_NULL(ptr);
+  CU_ASSERT_PTR_NULL(*ptr);
 }
 //regarde si mycalloc remet tout a zero
 void test3(void){
