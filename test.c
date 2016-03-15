@@ -35,6 +35,7 @@ int check = 0;
   int i = 0;
   while(i<10){
     if(*(a+i) != 0){
+      printf("not equal to 0\n");
       check = 1;
     }
     printf("adresse : %p", (char *)(a+i));
