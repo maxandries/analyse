@@ -30,7 +30,7 @@ void* mymalloc(size_t size){
 	if(!first){ //si first == NULL, premier appel de malloc on initialise le heap
 		first = sbrk(0);
 		void *request = sbrk(memsize);
-		if(*request==-1){
+		if(request==(void *)-1){
 			return NULL;
 		}
 		first->size = memsize;
