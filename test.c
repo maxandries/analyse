@@ -58,6 +58,8 @@ void test5(void){
 char *ptr = (char *) mymalloc(1);
 char *ptr2 = (char *) mymalloc(1);
 int hey = ptr + 8 - ptr2;
+myfree(ptr);
+myfree(ptr2);
 CU_ASSERT_FALSE(hey);
 }
 
@@ -72,6 +74,11 @@ char *ptr5 = (char *) mymalloc(sizeof(int));
 int hey = ptr + 8 - ptr5;
 int yo = ptr3 + 12 - ptr4;
 int salut = hey - yo;
+myfree(ptr);
+myfree(ptr2);
+myfree(ptr3);
+myfree(ptr4);
+myfree(ptr5);
 CU_ASSERT_FALSE(salut);
 }
 
