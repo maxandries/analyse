@@ -52,7 +52,7 @@ void test3(void){
   CU_ASSERT_FALSE(((struct block_header *)(a-4))->alloc);
 }
 
-//test la fragmentation interne
+//test la fragmentation interne ou vérification du respect de l'alignement des blocs
 void test5(void){
 char *ptr = (char *) mymalloc(1);
 char *ptr2 = (char *) mymalloc(1);
@@ -94,7 +94,9 @@ int main(){
   if ((NULL == CU_add_test(pSuite, "Test 1", test1)) || 
   (NULL == CU_add_test(pSuite, "Test 2", test2)) || 
   (NULL == CU_add_test(pSuite, "Test 3", test3)) /*||
-  (NULL == CU_add_test(pSuite, "Test 4",test4))*/){
+  (NULL == CU_add_test(pSuite, "Test 4",test4))
+  (NULL == CU_add_test(pSuite, "Test 5",test5))
+  (NULL == CU_add_test(pSuite, "Test 6",test6))*/){
     CU_cleanup_registry();
     return CU_get_error();
   }
