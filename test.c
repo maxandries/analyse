@@ -23,7 +23,7 @@ void test1(void){
   long *ptr2 = (long *)mymalloc(sizeof(long));
   printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
   myfree(ptr);
-  myfree(ptr2);
+  //myfree(ptr2);
   CU_ASSERT_PTR_NULL(ptr2);
  }
  
