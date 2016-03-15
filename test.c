@@ -29,6 +29,12 @@ void test3(void){
   }
   CU_ASSERT_FALSE(check);
 }
+//verifie si un block se dessalloue correctement
+void test4(void){
+  char *a = mymalloc(sizeof(char));
+  myfree(a);
+  CU_ASSERT_FALSE(((struct block_header *)(a-4)->alloc);
+}
 
 
 int main(){
