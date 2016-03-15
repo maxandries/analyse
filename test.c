@@ -26,8 +26,8 @@ void test1(void){
   CU_ASSERT_PTR_EQUAL(ptr2, NULL);
  }
 //regarde si mycalloc remet tout a zero
-void test3(void){
-  int check = 0;
+/*void test3(void){
+int check = 0;
   char *a = mycalloc(10*(sizeof(char)));
   int i = 0;
   while(i<10){
@@ -37,7 +37,7 @@ void test3(void){
     i++;
   }
   CU_ASSERT_FALSE(check);
-}
+}*/
 //verifie si un block se dessalloue correctement
 void test4(void){
   char *a = mymalloc(sizeof(char));
