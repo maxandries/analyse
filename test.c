@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "mymalloc.h"
 #include "CUnit.h"
-
+//test 1, le int se remet-il a la bonne place?
 void test1(void){
   long *a = mymalloc(sizeof(int));
   int *b = mymalloc(sizeof(int));
@@ -10,6 +10,11 @@ void test1(void){
   myfree(b);
   int *d = mymalloc(sizeof(int));
   CU_ASSERT_PTR_EQUAL(d, b);
+}
+
+void test2(void){
+  char *a = mymalloc(-1);
+  CU_ASSERT_PTR_NULL(a);
 }
 
 int main(){
