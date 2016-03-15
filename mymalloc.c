@@ -4,7 +4,7 @@
 #include "mymalloc.h"
 
 #define SIZE_HEADER sizeof(struct block_header)
-#define align4(x) (((((x) -1)>>2)<<2)+4)
+#define align4(x) (((((x)-1)>>2)<<2)+4)
 
 struct block_header *first = NULL;
 int memsize = 4000000;
@@ -58,13 +58,14 @@ void* mymalloc(size_t size){
 
 void *mycalloc(size_t size)
 {
-	char *p = mymalloc(size);
+	int sizeAl = align4(size);
+	char *p = mymalloc(sizeAl);
 	int i = 0;
 	while(i<size){
 		*p++ = 0;
 		i++;
 	}
-	p = p-size;
+	p = p-sizeAl;
 	return (void *)p;
 }
 
