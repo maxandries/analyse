@@ -50,7 +50,30 @@ void test3(void){
   char *a = mymalloc(sizeof(char));
   myfree(a);
   CU_ASSERT_FALSE(((struct block_header *)(a-4))->alloc);
-}*/
+}
+
+//test la fragmentation interne
+void test5(void){
+char *ptr = (char *) mymalloc(1);
+char *ptr2 = (char *) mymalloc(1);
+int hey = ptr + 4 - ptr2;
+CU_ASSERT_FALSE(hey);
+}
+
+//test la fragmentation externe
+void test6(void){
+char *ptr = (char *) mymalloc(sizeof(long));
+char *ptr2 = (char *) mymalloc(sizeof(int));
+char *ptr3 = (char *) mymalloc(sizeof(long));
+myfree(ptr2);
+char *ptr4 = (char *) mymalloc(sizeof(long));
+char *ptr5 = (char *) mymalloc(sizeof(int));
+int hey = ptr + 4 - ptr5;
+int yo = ptr3 + 8 - ptr4;
+int salut = hey - yo;
+CU_ASSERT_FALSE(salut);
+}
+*/
 
 
 int main(){
