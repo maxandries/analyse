@@ -23,7 +23,9 @@ struct block_header *findFree(size_t size) {
 
 
 void* mymalloc(size_t size){
-	
+	if ((int)size < 0){
+		return NULL;
+	}
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
 	if(!first){ //si first == NULL, premier appel de malloc on initialise le heap
 		first = sbrk(0);
