@@ -14,7 +14,8 @@ void test1(void){
 }
 //une taille negative retourne NULL
 void test2(void){
-  int *b = (int *)mymalloc(sizeof(int))
+  *ptr = mymalloc(3999999)
+  long *b = (long *)mymalloc(sizeof(long))
   size_t taille = -1;
   char *a = mymalloc(taille);
   printf("adresse test 2 :%p\n",a);
