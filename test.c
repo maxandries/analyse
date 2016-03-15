@@ -39,11 +39,11 @@ int check = 0;
   CU_ASSERT_FALSE(check);
 }*/
 //verifie si un block se dessalloue correctement
-void test4(void){
+/*void test4(void){
   char *a = mymalloc(sizeof(char));
   myfree(a);
   CU_ASSERT_FALSE(((struct block_header *)(a-4))->alloc);
-}
+}*/
 
 
 int main(){
@@ -62,9 +62,9 @@ int main(){
     return CU_get_error(); 
   } 
   if ((NULL == CU_add_test(pSuite, "Test 1", test1)) || 
-  (NULL == CU_add_test(pSuite, "Test 2", test2)) || 
-  /*(NULL == CU_add_test(pSuite, "Test 3", test3)) ||*/ 
-  (NULL == CU_add_test(pSuite, "Test 4",test4))){
+  (NULL == CU_add_test(pSuite, "Test 2", test2)) /*|| 
+  /*(NULL == CU_add_test(pSuite, "Test 3", test3)) ||
+  (NULL == CU_add_test(pSuite, "Test 4",test4))*/){
     CU_cleanup_registry();
     return CU_get_error();
   }
