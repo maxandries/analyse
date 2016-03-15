@@ -73,7 +73,7 @@ void *mycalloc(size_t size)
 }
 
 void myfree(void *ptr){
-	struct block_header *remov = ptr-4;
+	struct block_header *remov = ptr-1;
 	struct block_header *current = first;
 	//printf("first ->size : %d\n", first->size);
 	/*int bool = 0;
