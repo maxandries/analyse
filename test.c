@@ -73,7 +73,12 @@ CU_ASSERT_FALSE(d);
 
 //test si size entrée est negative
 void test7(void){
-  CU_ASSERT_PTR_NULL(mymalloc(-1))
+  CU_ASSERT_PTR_NULL(mymalloc(-1));
+}
+
+//test si size entrée est trop grand
+void test8(void){
+  CU_ASSERT_PTR_NULL(mymalloc(81236542356879524621365245884531));
 }
 
 //test la fragmentation externe
