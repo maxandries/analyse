@@ -81,7 +81,7 @@ void test8(void){
 }
 
 //test la fragmentation externe, (avec le test 1)
-void test9(void){
+/*void test9(void){
   long *a = (long *)mymalloc(sizeof(long));
   int *b = (int *)mymalloc(sizeof(int));
   long *c = (long *)mymalloc(sizeof(long));
@@ -92,8 +92,8 @@ void test9(void){
   myfree(d);
   CU_ASSERT_PTR_EQUAL(d, c+12);
 }
-
-int main(){
+*/
+ int main(){
   if (CUE_SUCCESS != CU_initialize_registry()) 
     return CU_get_error();
   int setup(void){
@@ -115,8 +115,8 @@ int main(){
   (NULL == CU_add_test(pSuite, "Test 5", test5))||
   (NULL == CU_add_test(pSuite, "Test 6", test6))||
   (NULL == CU_add_test(pSuite, "Test 7", test7))||
-  (NULL == CU_add_test(pSuite, "Test 8", test8))||
-  (NULL == CU_add_test(pSuite, "Test 9", test9))){
+  (NULL == CU_add_test(pSuite, "Test 8", test8))/*||
+  (NULL == CU_add_test(pSuite, "Test 9", test9))*/){
     CU_cleanup_registry();
     return CU_get_error();
   }
