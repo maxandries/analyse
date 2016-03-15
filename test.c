@@ -6,7 +6,10 @@
 void test1(void){
   long *a = mymalloc(sizeof(int));
   int *b = mymalloc(sizeof(int));
-  long 
+  long *c = mymalloc(sizeof(long));
+  myfree(b);
+  int *d = mymalloc(sizeof(int));
+  CU_ASSERT_PTR_EQUAL(d, b);
 }
 
 int main(){
