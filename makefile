@@ -7,3 +7,4 @@ hello: mymalloc.o test.o
 	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib  mymalloc.o test.o -o hello -lcunit
 clean:
 	rm -f *.o
+./hello
