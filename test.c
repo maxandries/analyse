@@ -5,7 +5,7 @@
 #include <CUnit/TestRun.h>
 //test 1, le int se remet-il a la bonne place?
 void test1(void){
-  long *a = (long *)mymalloc(sizeof(int));
+  long *a = (long *)mymalloc(sizeof(long));
   int *b = (int *)mymalloc(sizeof(int));
   long *c = (long *)mymalloc(sizeof(long));
   myfree(b);
