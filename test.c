@@ -30,7 +30,7 @@ void test1(void){
 void test3(void){
   printf("enter test 3\n");
 int check = 0;
-  char *a = mycalloc(10*(sizeof(char)));
+  char *a =(char *)mycalloc(10*(sizeof(char)));
   printf("malloc OK\n");
   int i = 0;
   while(i<10){
