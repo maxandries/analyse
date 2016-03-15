@@ -1,3 +1,4 @@
+exec: ./hello
 all : hello
 mymalloc.o: mymalloc.c mymalloc.h
 	gcc -c mymalloc.c   
@@ -7,4 +8,3 @@ hello: mymalloc.o test.o
 	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib  mymalloc.o test.o -o hello -lcunit
 clean:
 	rm -f *.o
-./hello
