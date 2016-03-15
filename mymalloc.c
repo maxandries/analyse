@@ -78,7 +78,7 @@ void myfree(void *ptr){
 	while(current != ptr-4){
 		current = current+(current->size)/4;
 		if(current == sbrk(0)){
-			return NULL;
+			return EXIT_FAILURE;
 		}
 	}
 	current = first;
