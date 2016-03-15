@@ -76,7 +76,7 @@ void myfree(void *ptr){
 	struct block_header *remov = ptr-4;
 	struct block_header *current = first;
 	int bool = 0;
-	while(current != ptr-4){
+	while(current == ptr-1){
 		current = current+(current->size)/4;
 		if(current == sbrk(0)){
 			bool = 1;
