@@ -62,8 +62,8 @@ int main(){
     return CU_get_error(); 
   } 
   if ((NULL == CU_add_test(pSuite, "Test 1", test1)) || 
-  (NULL == CU_add_test(pSuite, "Test 2", test2)) /*|| 
-  /*(NULL == CU_add_test(pSuite, "Test 3", test3)) ||
+  (NULL == CU_add_test(pSuite, "Test 2", test2)) || 
+  (NULL == CU_add_test(pSuite, "Test 3", test3)) /*||
   (NULL == CU_add_test(pSuite, "Test 4",test4))*/){
     CU_cleanup_registry();
     return CU_get_error();
