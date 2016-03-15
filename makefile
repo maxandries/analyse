@@ -1,5 +1,6 @@
-exec: ./hello
-all : hello
+all : exec
+exec: hello
+	./hello
 mymalloc.o: mymalloc.c mymalloc.h
 	gcc -c mymalloc.c   
 test.o: test.c mymalloc.h
@@ -8,3 +9,4 @@ hello: mymalloc.o test.o
 	gcc -I$(HOME)/local/include/ -L$(HOME)/local/lib  mymalloc.o test.o -o hello -lcunit
 clean:
 	rm -f *.o
+.PHONY: all exec
