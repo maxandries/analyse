@@ -3,6 +3,7 @@
 #include "mymalloc.h"
 #include <CUnit/CUnit.h>
 #include <CUnit/TestRun.h>
+
 //test 1, le int se remet-il a la bonne place?
 void test1(void){
   long *a = (long *)mymalloc(sizeof(long));
@@ -15,18 +16,17 @@ void test1(void){
   myfree(d);
   CU_ASSERT_PTR_EQUAL(d, b);
 }
+
 //espace memoire insuffisant lors d'un appel à malloc
  void test2(void){
   char *ptr = (char *) mymalloc(92);
   long *ptr2 = (long *)mymalloc(sizeof(long));
   printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
-  if(ptr2==NULL){
-    printf("putain de merde j'en ai marre\n");
-  }
   CU_ASSERT_PTR_NULL(ptr2);
  }
+ 
 //regarde si mycalloc remet tout a zero
-/*void test3(void){
+void test3(void){
 int check = 0;
   char *a = mycalloc(10*(sizeof(char)));
   int i = 0;
@@ -37,7 +37,7 @@ int check = 0;
     i++;
   }
   CU_ASSERT_FALSE(check);
-}*/
+}
 //verifie si un block se dessalloue correctement
 /*void test4(void){
   char *a = mymalloc(sizeof(char));
