@@ -69,8 +69,8 @@ char *ptr3 = (char *) mymalloc(sizeof(long));
 myfree(ptr2);
 char *ptr4 = (char *) mymalloc(sizeof(long));
 char *ptr5 = (char *) mymalloc(sizeof(int));
-int hey = ptr + 4 - ptr5;
-int yo = ptr3 + 8 - ptr4;
+int hey = ptr + 8 - ptr5;
+int yo = ptr3 + 12 - ptr4;
 int salut = hey - yo;
 CU_ASSERT_FALSE(salut);
 }
