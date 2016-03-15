@@ -62,7 +62,13 @@ void *mycalloc(size_t size)
 		*p++ = 0;
 		i++;
 	}
+	int j= 0;
 	p = p-sizeAl;
+	while(j<size){
+		printf("calloc : %c", *(p+j));
+		j++;
+	}
+	//p = p-sizeAl;
 	return (void *)p;
 }
 
