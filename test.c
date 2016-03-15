@@ -14,7 +14,8 @@ void test1(void){
 }
 //une taille negative retourne NULL
 void test2(void){
-  char *a = mymalloc((size_t)-1);
+  size_t taille = -1;
+  char *a = mymalloc(taille);
   printf("adresse test 2 :%p\n",a);
   CU_ASSERT_PTR_NULL(a);
 }
