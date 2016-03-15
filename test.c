@@ -46,7 +46,7 @@ int heyyy = b - a;
 CU_ASSERT_FALSE(heyyy);
 }
 
-//test la fragmentation interne ou vérification du respect de l'alignement des blocs
+//test la fragmentation interne ou vérification du respect de l'alignement des blocs en mémoire
 void test5(void){
   printf("test 5\n");
 char *ptr = (char *) mymalloc(1);
