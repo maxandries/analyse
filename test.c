@@ -34,7 +34,7 @@ myfree(ptr);
 CU_ASSERT_FALSE(a);
 }
 
-//test de myfree ou verifie si un block se dessalloue correctement
+//test de myfree ou verifie si un block se dessalloue correctement (verifier si en dehors !!!)
 void test4(void){
 char *ptr = (char *) mymalloc(sizeof(int));
 int a = (int) ptr;
