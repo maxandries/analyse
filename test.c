@@ -32,7 +32,7 @@ void test3(void){
   printf("enter test 3\n");
 int check = 0;
   char *a = mycalloc(10*(sizeof(char)));
-  printf("malloc OK\n")
+  printf("malloc OK\n");
   int i = 0;
   while(i<10){
     if(*(a+i) != 0){
