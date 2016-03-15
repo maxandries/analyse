@@ -87,6 +87,8 @@ void test9(void){
   long *c = (long *)mymalloc(sizeof(long));
   myfree(b);
   long *d =(long *)mymalloc(sizeof(long));
+  printf("size b: %d; size a: %d\n",sizeof(*b), sizeof(*a));
+  printf("adresse b: %p, adresse d: %p",b, d);
   //myfree(a);
   //myfree(c);
   //myfree(d);
