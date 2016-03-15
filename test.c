@@ -65,8 +65,8 @@ CU_ASSERT_FALSE(hey);
 }
 
 //test la fragmentation externe
-void test6(void){
-  printf("test 6");
+/*void test6(void){
+printf("test 6");
 char *ptr = (char *) mymalloc(sizeof(long));
 char *ptr2 = (char *) mymalloc(sizeof(int));
 char *ptr3 = (char *) mymalloc(sizeof(long));
@@ -82,7 +82,7 @@ myfree(ptr4);
 myfree(ptr5);
 CU_ASSERT_FALSE(salut);
 }
-
+*/
 
 
 int main(){
@@ -105,7 +105,8 @@ int main(){
   (NULL == CU_add_test(pSuite, "Test 3", test3)) ||
 //  (NULL == CU_add_test(pSuite, "Test 4",test4))|| 
   (NULL == CU_add_test(pSuite, "Test 5", test5))||
-  (NULL == CU_add_test(pSuite, "Test 6",test6))){
+  //(NULL == CU_add_test(pSuite, "Test 6",test6)))
+  {
     CU_cleanup_registry();
     return CU_get_error();
   }
