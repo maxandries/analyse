@@ -50,10 +50,10 @@ void test3(void){
 //test de myfree ou verifie si un block se dessalloue correctement
 void test4(void){
 char *ptr = (char *) mymalloc(sizeof(int));
-int a = ptr;
+int a = (int*) ptr;
 myfree(ptr);
 char *ptr2 = (char *) mymalloc(sizeof(int));
-int b = ptr2;
+int b = (int*) ptr2;
 myfree(ptr2);
 int heyyy = b - a;
 CU_ASSERT_FALSE(heyyy);
