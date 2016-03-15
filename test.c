@@ -99,7 +99,7 @@ int main(){
   (NULL == CU_add_test(pSuite, "Test 3", test3)) ||
   (NULL == CU_add_test(pSuite, "Test 4",test4))|| 
   (NULL == CU_add_test(pSuite, "Test 5", test5))||
-  (NULL == CU_add_test(pSuite, "Test 6", test6))
+  (NULL == CU_add_test(pSuite, "Test 6", test6))||
   (NULL == CU_add_test(pSuite, "Test 7", test7))){
     CU_cleanup_registry();
     return CU_get_error();
