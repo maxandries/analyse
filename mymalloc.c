@@ -13,7 +13,7 @@ int memsize = 100;//taille du heap
 struct block_header *findFree(size_t size) {
 	struct block_header *current = first; //premier bloc du heap
 	while ((current->alloc == 1 && (current->size != size || (current->size)-size < 4))) {
-		if (current+(current->size)/4 >= sbrk(0)){
+		if (current+(current->size)/4 == sbrk(0)){
 			return NULL;
 		}
 		current = current + (current->size)/4; // size/4 car lorsqu'on fait +1, on avance d'une fois la taille de la structure
