@@ -22,7 +22,7 @@ void test2(void){
   long *ptr2 = (long *)mymalloc(sizeof(long));
     printf("pointeur :%p\n", ptr2);
   }*/
-  //printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
+  printf("test");
   CU_ASSERT_PTR_NULL((long *)mymalloc(sizeof(long)));
 }
 //regarde si mycalloc remet tout a zero
