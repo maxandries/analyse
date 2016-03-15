@@ -20,6 +20,9 @@ void test1(void){
   char *ptr = (char *) mymalloc(50);
   long *ptr2 = (long *)mymalloc(sizeof(long));
   printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
+  if(ptr2==NULL){
+    printf("putain de merde j'en ai marre\n");
+  }
   CU_ASSERT_PTR_NULL(ptr2);
  }
 //regarde si mycalloc remet tout a zero
