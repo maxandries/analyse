@@ -71,7 +71,7 @@ CU_ASSERT_FALSE(hey);
 }
 
 //test de la fusion de deux blocs libres
-consécutifs de façon à obtenir un plus grand bloc
+//consécutifs de façon à obtenir un plus grand bloc
 void test6(void){
 char *ptr = (char *) mymalloc(sizeof(char));
 char *ptr2 = (char *) mymalloc(sizeof(char));
