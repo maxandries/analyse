@@ -19,10 +19,10 @@ void test1(void){
 void test2(void){
   char *ptr = (char *) mymalloc(90);
   long *ptr2 = (long *)mymalloc(sizeof(long));
-  while(ptr2 != NULL ){
-    long *ptr2 = (long *)mymalloc(sizeof(long));
+  /*while(ptr2 != NULL ){
+  long *ptr2 = (long *)mymalloc(sizeof(long));
     printf("pointeur :%p\n", ptr2);
-  }
+  }*/
   printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
   CU_ASSERT_PTR_NULL(ptr2);
 }
