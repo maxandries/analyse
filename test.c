@@ -37,7 +37,7 @@ int check = 0;
     if(*(a+i) != 0){
       check = 1;
     }
-    printf("adresse : %p", (a+i));
+    printf("adresse : %p", (char *)(a+i));
     printf("%d\n", i);
     i++;
   }
