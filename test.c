@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mymalloc.h"
-#include <CUnit.h>
+#include <CUnit/CUnit.h>
+#include <CUnit/TestRun.h>
 //test 1, le int se remet-il a la bonne place?
 void test1(void){
   long *a = (long *)mymalloc(sizeof(int));
