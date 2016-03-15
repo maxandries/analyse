@@ -21,7 +21,6 @@ void test1(void){
  void test2(void){
   char *ptr = (char *) mymalloc(92);
   long *ptr2 = (long *)mymalloc(sizeof(long));
-  printf("pointeur 1:%p, pointeur 2: %p\n", ptr,ptr2);
   myfree(ptr);
   CU_ASSERT_PTR_NULL(ptr2);
  }
@@ -48,7 +47,6 @@ CU_ASSERT_FALSE(heyyy);
 
 //test la fragmentation interne ou vérification du respect de l'alignement des blocs en mémoire
 void test5(void){
-  printf("test 5\n");
 char *ptr = (char *) mymalloc(1);
 char *ptr2 = (char *) mymalloc(1);
 int hey = ptr + 8 - ptr2;
@@ -83,7 +81,17 @@ void test8(void){
 }
 
 //test la fragmentation externe
-
+void test9(void){
+  long *a = (long *)mymalloc(sizeof(long));
+  int *b = (int *)mymalloc(sizeof(int));
+  long *c = (long *)mymalloc(sizeof(long));
+  myfree(b);
+  long *d =(long *)mymalloc(sizeof(long));
+  myfree(a);
+  myfree(c);
+  myfree(d);
+  CU_ASSERT_PTR_EQUAL(d, c+12);
+}
 
 int main(){
   if (CUE_SUCCESS != CU_initialize_registry()) 
@@ -93,8 +101,8 @@ int main(){
   } 
   int teardown(void) { 
     return 0; 
-  } // ... 
-  CU_pSuite pSuite = NULL; // ... 
+  }
+  CU_pSuite pSuite = NULL; 
   pSuite = CU_add_suite("ma_suite", setup, teardown);
   if (NULL == pSuite) {
     CU_cleanup_registry(); 
