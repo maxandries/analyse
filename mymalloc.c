@@ -72,7 +72,7 @@ void *mycalloc(size_t size)
 		i++;
 	}
 	
-	p = p-sizeAl//on recupere l'adresse a renvoie;
+	p = p-sizeAl;//on recupere l'adresse a renvoie;
 	return (void *)p;
 }
 
