@@ -22,5 +22,5 @@ int main(){
   int *mall = (int *)malloc(sizeof(int));
   gettimeofday(&tvEnd2, NULL);
   
-  printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &TvStart2));
+  printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &tvStart2));
 }
