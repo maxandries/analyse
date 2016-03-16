@@ -17,9 +17,11 @@ int main(){
   int i;
   gettimeofday(&tvStart1, NULL);
   int *mymall = (int *)mymalloc(100*sizeof(int));
+  long *mymall2 = (long *)mymalloc(10*sizeof(long));
   gettimeofday(&tvEnd1, NULL);
   gettimeofday(&tvStart2, NULL);
   int *mall = (int *)malloc(100*sizeof(int));
+  long *mall2 = (long *)malloc(10*sizeof(long));
   gettimeofday(&tvEnd2, NULL);
   
   printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &tvStart2));
