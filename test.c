@@ -90,6 +90,7 @@ void test9(void){
   myfree(b); 
   myfree(e);
   long *d =(long *)mymalloc(sizeof(long));
+  printf("adresse a: %p\n adresse b: %p\nadresse c: %p\nadresse d: %p\nadresse e: %p\n",a,b,c,d,e);
   //myfree(a);
   //myfree(c);
   //myfree(d);
