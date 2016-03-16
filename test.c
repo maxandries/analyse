@@ -25,5 +25,5 @@ int main(){
   long *mall2 = (long *)malloc(10*sizeof(long));
   gettimeofday(&tvEnd2, NULL);
   printf("adresse 1: %p\n adresse 2 : %p\n",mall, mall2);
-  printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &tvStart2));
+  printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld microseconds\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &tvStart2));
 }
