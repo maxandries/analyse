@@ -6,7 +6,7 @@
 #define SIZE_HEADER sizeof(struct block_header)
 #define align4(x) (((((x)-1)>>2)<<2)+4) //fonction permettant l'aligment sur 4bits de la taille.
 struct block_header *first = NULL;//structure permettant la creation du premier (premier appel a mymalloc/mycalloc)
-int memsize = 1000;//taille du heap
+int memsize = 10000000;//taille du heap
 
 //fonction permettant de trouver un bloc libre et le cas echeant retourne null
 struct block_header *findFree(size_t size) {
