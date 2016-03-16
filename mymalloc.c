@@ -23,6 +23,7 @@ struct block_header *findFree(size_t size) {
 
 
 void* mymalloc(size_t size){
+	//verifie si la taille entree est bien positive
 	if ((int)size < 0){
 		return NULL;
 	}
@@ -30,23 +31,24 @@ void* mymalloc(size_t size){
 	if(!first){ //si first == NULL, premier appel de malloc on initialise le heap
 		first = sbrk(0);
 		void *request = sbrk(memsize);
+		//gere le cas ou sbrk n'a pas fonctionne
 		if(request==(void *)-1){
 			return NULL;
 		}
 		first->size = memsize;
 		first->alloc = 0;
 	}
+	//cherche un bloc libre dans le heap, si pas de bloc libre findfree renvoi NULL
 	struct block_header *newBlock = findFree(sizeTot);
-	printf("size newblock: %d", newBlock->size);
 	if(!newBlock){
 		return NULL; //pas de place libre
-		printf("pas de bloc libre \n");
 	}
+	//si le bloc a la bonne taille, on renvoie directement l'adresse
 	if(newBlock->size == sizeTot){
 		newBlock->alloc = 1;
-		printf("alloué\n");
 		return (void *)(newBlock+1);
 	}
+	//si le bloc est trop grand, on divise en un bloc alloue et un bloc libre
 	if(sizeTot<newBlock->size){
 		int sizep = (newBlock->size)-sizeTot;
 		newBlock->size = sizeTot;
@@ -54,33 +56,32 @@ void* mymalloc(size_t size){
 		freeOne->size = sizep;
 		newBlock->alloc = 1;
 		freeOne->alloc = 0;
-		printf("alloué\n");
 		return (void *)(newBlock+1);
 	}
-	printf("non alloué\n");
 	return NULL;
-	
 }
 
-
+//fonction calloc, initialise toute la zone memoire renvoye a 0
 void *mycalloc(size_t size)
 {
 	int sizeAl = align4(size);
 	char *p = mymalloc(sizeAl);
 	int i = 0;
+	//boucle permettant l'initialisation de chaque adresse de la zone memoire
 	while(i<size){
 		*p++ = 0;
 		i++;
 	}
-	int j= 0;
-	p = p-sizeAl;
+	
+	p = p-sizeAl//on recupere l'adresse a renvoie;
 	return (void *)p;
 }
 
 void myfree(void *ptr){
-	struct block_header *remov = ptr-4;
+	struct block_header *remov = ptr-4;//bloc a "supprimer"
 	struct block_header *current = first;
 	int bool = 0;
+	//boucle permettant de voir si ptr-4 est bien une structure
 	while(current != ptr-4){
 		current = current+(current->size)/4;
 		if(current == sbrk(0)){
@@ -88,25 +89,24 @@ void myfree(void *ptr){
 		}
 	}
 	if(bool == 0){
-	current = first;
-	if(remov==first){
-		if((first+(first->size)/4)->alloc==0){
-			remov->size = remov->size + (first+(first->size)/4)->size;
+		current = first;//pointeur servant à la fusion possible entre deux bloc non alloue
+		if(remov==first){//si le bloc est le premier du heap on verifie si le suivant en alloue ou pas
+			if((first+(first->size)/4)->alloc==0){
+				remov->size = remov->size + (first+(first->size)/4)->size;
+			}
+			remov->alloc = 0;
 		}
-		remov->alloc = 0;
-	}
-	else{
-	remov->alloc =0;
-	if((remov+(remov->size)/4)->alloc == 0){
-		
-		remov->size = remov->size +(remov+(remov->size)/4)->size; 
-	}
-	while((current+(current->size)/4)!=remov){
-		current = (current+(current->size)/4);
-	}
-	if(current->alloc == 0){
-		current->size = current->size + remov->size;
-	}
-	}
+		else{//cas ou le bloc n'est pas le premier du heap
+			remov->alloc =0;
+			if((remov+(remov->size)/4)->alloc == 0){
+				remov->size = remov->size +(remov+(remov->size)/4)->size; 
+			}
+			while((current+(current->size)/4)!=remov){
+				current = (current+(current->size)/4);
+			}
+			if(current->alloc == 0){
+				current->size = current->size + remov->size;
+			}
+		}
 	}
 }
