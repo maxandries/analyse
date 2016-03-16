@@ -12,7 +12,7 @@ int memsize = 1000;//taille du heap
 //fonction permettant de trouver un bloc libre et le cas echeant retourne null
 struct block_header *findFree(size_t size) {
 	struct block_header *current = first; //premier bloc du heap
-	while ((current->alloc == 1 && (current->size != size || (current->size)-size <12))) {
+	while ((current->alloc == 1 && (current->size != size || (current->size)-size <4))) {
 		if (current+(current->size)/4 == sbrk(0)){
 			return NULL;
 		}
@@ -27,6 +27,7 @@ void* mymalloc(size_t size){
 		return NULL;
 	}
 	int sizeTot = align4(size) + SIZE_HEADER; //alignement sur 32bits et ajouts de la taille de la structure
+	printf("sizeTot: %d\n", sizeTot);
 	if(!first){ //si first == NULL, premier appel de malloc on initialise le heap
 		first = sbrk(0);
 		void *request = sbrk(memsize);
@@ -37,7 +38,7 @@ void* mymalloc(size_t size){
 		first->alloc = 0;
 	}
 	struct block_header *newBlock = findFree(sizeTot);
-	printf("size newblock: %d", newBlock->size);
+	printf("size newblock: %d\n", newBlock->size);
 	if(!newBlock){
 		return NULL; //pas de place libre
 		printf("pas de bloc libre \n");
