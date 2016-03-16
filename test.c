@@ -86,12 +86,14 @@ void test9(void){
   long *a = (long *)mymalloc(sizeof(long));
   int *b = (int *)mymalloc(sizeof(int));
   long *c = (long *)mymalloc(sizeof(long));
-  myfree(b);
+  long *e = (long *)mymalloc(sizeof(long));
+  myfree(b); 
+  myfree(e);
   long *d =(long *)mymalloc(sizeof(long));
   //myfree(a);
   //myfree(c);
   //myfree(d);
-  CU_ASSERT_PTR_EQUAL(d, c+(c-4/sizeof(long))->size +4);
+  CU_ASSERT_PTR_EQUAL(e,d);
 }
 
  int main(){
