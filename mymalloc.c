@@ -19,7 +19,7 @@ struct block_header *findFree(size_t size) {
 				return current;
 			}
 			else{
-				if(current-size>=size+4){
+				if(current->size>=size+4){
 					return current;
 				}
 			}
