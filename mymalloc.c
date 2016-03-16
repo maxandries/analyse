@@ -108,5 +108,5 @@ void myfree(void *ptr){
 		current->size = current->size + remov->size;
 	}
 	}
-//	}
+	}
 }
