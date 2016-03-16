@@ -24,12 +24,12 @@ int main(){
   gettimeofday(&tvEnd2, NULL);
   printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld microseconds\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &tvStart2));
   gettimeofday(&tvStart3, NULL);
-  int *mycall = (int *)mycalloc(100*sizeof(int));
-  long *mycall2 = (long *)mycalloc(10*sizeof(long));
+  int *mycall = (int *)mycalloc(100,sizeof(int));
+  long *mycall2 = (long *)mycalloc(10,sizeof(long));
   gettimeofday(&tvEnd3, NULL);
   gettimeofday(&tvStart4, NULL);
-  int *call = (int *)calloc(100*sizeof(int));
-  long *call2 = (long *)calloc(10*sizeof(long));
+  int *call = (int *)calloc(100,sizeof(int));
+  long *call2 = (long *)calloc(10,sizeof(long));
   gettimeofday(&tvEnd4, NULL);
   printf("Duration mycalloc : %ld microseconds\nDuration calloc : %ld microseconds\n", timeval_diff(&tvEnd3, &tvStart3), timeval_diff(&tvEnd4, &tvStart4));
 }
