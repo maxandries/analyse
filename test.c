@@ -84,13 +84,17 @@ void test8(void){
 //test la fragmentation externe, (avec le test 1)
 void test9(void){
   long *a = (long *)mymalloc(sizeof(long));
+  printf("adresse a: %p\n",a);
   int *b = (int *)mymalloc(sizeof(int));
+  printf("adresse b: %p\n",b);
   long *c = (long *)mymalloc(sizeof(long));
+   printf("adresse c: %p\n",c);
   long *e = (long *)mymalloc(sizeof(long));
+   printf("adresse e: %p\n",e);
   myfree(b); 
   myfree(e);
   long *d =(long *)mymalloc(sizeof(long));
-  printf("adresse a: %p\n adresse b: %p\nadresse c: %p\nadresse d: %p\nadresse e: %p\n",a,b,c,d,e);
+   printf("adresse d: %p\n",d);
   //myfree(a);
   //myfree(c);
   //myfree(d);
