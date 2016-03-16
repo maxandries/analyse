@@ -9,7 +9,7 @@ struct block_header {
 
 struct block_header *findFree(size_t size);
 void* mymalloc(size_t size);
-void *mycalloc(size_t size);
+void *mycalloc(size_t nmen, size_t size);
 void myfree(void *ptr);
 
 #endif
