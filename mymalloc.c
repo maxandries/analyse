@@ -56,6 +56,7 @@ void* mymalloc(size_t size){
 		printf("alloué\n");
 		return (void *)(newBlock+1);
 	}
+	printf("non alloué");
 	return NULL;
 	
 }
