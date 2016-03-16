@@ -104,8 +104,7 @@ void test8(void){
   (NULL == CU_add_test(pSuite, "Test 5", test5))||
   (NULL == CU_add_test(pSuite, "Test 6", test6))||
   (NULL == CU_add_test(pSuite, "Test 7", test7))||
-  (NULL == CU_add_test(pSuite, "Test 8", test8))||
-  (NULL == CU_add_test(pSuite, "Test 9", test9))){
+  (NULL == CU_add_test(pSuite, "Test 8", test8))){
     CU_cleanup_registry();
     return CU_get_error();
   }
