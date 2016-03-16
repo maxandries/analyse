@@ -11,5 +11,20 @@ long timeval_diff(struct timeval *t2, struct timeval *t1) {
 
 
 int main(){
+  int *mymall[100];
+  int *mall[100];
+  struct timeval tvStart1, tvEnd1, tvStart2, tvEnd2;
+  int i;
+  gettimeofday(&tvStart1, NULL);
+  for(i=0,i<100,i++){
+    *mymall[i] = (int *)mymalloc(sizeof(int)); 
+  }
+  gettimeofday(&tvEnd1, NULL);
+  gettimeofday(&tvStart2, NULL);
+  for(i=0,i<100,i++){
+    *mymall[i] = (int *)malloc(sizeof(int)); 
+  }
+  gettimeofday(&tvEnd2, NULL);
   
+  printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &TvStart2));
 }
