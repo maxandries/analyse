@@ -12,7 +12,7 @@ int memsize = 1000;//taille du heap
 //fonction permettant de trouver un bloc libre et le cas echeant retourne null
 struct block_header *findFree(size_t size) {
 	struct block_header *current = first; //premier bloc du heap
-	while ((current->alloc == 1 && (current->size != size || (current->size)-size < 4))) {
+	while ( ((current->alloc) == 1 && (current->size) != size ) || ((current->alloc) == 1 && (current->size)-size < 4)) {
 		if (current+(current->size)/4 == sbrk(0)){
 			return NULL;
 		}
