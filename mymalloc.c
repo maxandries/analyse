@@ -61,9 +61,9 @@ void* mymalloc(size_t size){
 }
 
 //fonction calloc, initialise toute la zone memoire renvoye a 0
-void *mycalloc(size_t size)
+void *mycalloc(size_t nmen, size_t size)
 {
-	int sizeAl = align4(size);
+	int sizeAl = align4(nmen*size);
 	char *p = mymalloc(sizeAl);
 	int i = 0;
 	//boucle permettant l'initialisation de chaque adresse de la zone memoire
