@@ -43,7 +43,7 @@ void* mymalloc(size_t size){
 	}
 	if(newBlock->size == sizeTot){
 		newBlock->alloc = 1;
-		printf("alloué");
+		printf("alloué\n");
 		return (void *)(newBlock+1);
 	}
 	if(sizeTot<newBlock->size){
@@ -53,7 +53,7 @@ void* mymalloc(size_t size){
 		freeOne->size = sizep;
 		newBlock->alloc = 1;
 		freeOne->alloc = 0;
-		printf("alloué");
+		printf("alloué\n");
 		return (void *)(newBlock+1);
 	}
 	return NULL;
