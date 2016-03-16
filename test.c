@@ -87,7 +87,6 @@ void test9(void){
   int *b = (int *)mymalloc(sizeof(int));
   long *c = (long *)mymalloc(sizeof(long));
   long *e = (long *)mymalloc(sizeof(long));
-  int adresse = (int) e;
   myfree(b); 
   myfree(e);
   long *d =(long *)mymalloc(sizeof(long));
@@ -95,7 +94,7 @@ void test9(void){
   //myfree(a);
   //myfree(c);
   //myfree(d);
-  CU_ASSERT_PTR_EQUAL(adresse,d);
+  CU_ASSERT_PTR_EQUAL(e,d);
 }
 
  int main(){
