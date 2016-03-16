@@ -37,6 +37,7 @@ void* mymalloc(size_t size){
 		first->alloc = 0;
 	}
 	struct block_header *newBlock = findFree(sizeTot);
+	printf("size newblock: %d", newblock->size);
 	if(!newBlock){
 		return NULL; //pas de place libre
 		printf("pas de bloc libre \n");
@@ -56,7 +57,7 @@ void* mymalloc(size_t size){
 		printf("alloué\n");
 		return (void *)(newBlock+1);
 	}
-	printf("non alloué");
+	printf("non alloué\n");
 	return NULL;
 	
 }
