@@ -19,11 +19,11 @@ int main(){
   int *mymall = (int *)mymalloc(100*sizeof(int));
   long *mymall2 = (long *)mymalloc(10*sizeof(long));
   gettimeofday(&tvEnd1, NULL);
-  printf("adresse 1: %p\n adresse 2 : %p\n",mall, mall2);
+  printf("adresse 1: %p\n adresse 2 : %p\n",mymall, mymall2);
   gettimeofday(&tvStart2, NULL);
   int *mall = (int *)malloc(100*sizeof(int));
   long *mall2 = (long *)malloc(10*sizeof(long));
   gettimeofday(&tvEnd2, NULL);
-  printf("adresse 1: %p\n adresse 2 : %p\n",mymall, mymall2);
+  printf("adresse 1: %p\n adresse 2 : %p\n",mall, mall2);
   printf("Duration mymalloc : %ld microseconds\nDuration malloc : %ld\n", timeval_diff(&tvEnd1, &tvStart1), timeval_diff(&tvEnd2, &tvStart2));
 }
